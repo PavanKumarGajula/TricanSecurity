@@ -1,0 +1,348 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Security Services — Trican Security Inc."
+  description="Surveillance, access control, alarms, fire alarms, network infrastructure, and mobile trailer rentals for businesses and government agencies across Maryland."
+  padTop={false}
+>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-stage" id="stage">
+
+      <div class="hero-meta-top hero-label">
+        <span class="hero-rec"><i></i>REC<span class="hero-ts" id="ts"></span></span>
+      </div>
+
+      <div class="hero-eyebrow-row">
+        <span class="hero-armed">
+          <i></i>
+          <span class="hero-kicker-text">Every layer of protection. One team.</span>
+        </span>
+      </div>
+
+      <div class="hero-type">
+        <h1>
+          <div class="hero-line"><span>Security services that work as one system.</span></div>
+        </h1>
+        <p class="hero-sub">Cameras, badges, alarms, fire panels, and networks designed to work together — from a single storefront to a 100,000 sq ft campus. Installed and supported by one team.</p>
+      </div>
+
+      <div class="hero-objpos" aria-hidden="true">
+        <div class="hero-objpx" id="hero-objpx">
+          <div class="hero-img-card"><img src="/images/hero-camera.png" alt="" /></div>
+          <div class="hero-img-card"><img src="/images/badge-hero.png"  alt="" /></div>
+          <div class="hero-img-card hero-img-card--alarm"><img src="/images/alarm-hero.png" alt="" /></div>
+          <div class="hero-img-card"><img src="/images/network-hero.png" alt="" /></div>
+        </div>
+      </div>
+
+      <div class="hero-foot">
+        <div class="hero-call">
+          <a class="btn-primary" href="#surveillance">Explore services</a>
+          <a class="btn-secondary" href="/contact">Get a free assessment</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script>
+    const tsEl = document.getElementById('ts') as HTMLElement | null;
+    function tick() {
+      if (!tsEl) return;
+      const d = new Date(), p = (n: number) => String(n).padStart(2, '0');
+      tsEl.textContent = ` ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
+    }
+    tick(); setInterval(tick, 1000);
+
+    const siteNav = document.getElementById('site-nav') as HTMLElement | null;
+    if (siteNav) siteNav.classList.add('nav-scrolled');
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    (function () {
+      const cards = [...document.querySelectorAll<HTMLElement>('.hero-img-card')];
+      if (!cards.length) return;
+      const n = cards.length;
+      cards[0].classList.add('card-active');
+      if (reduced || n < 2) return;
+      cards[1].classList.add('card-next');
+      let activeIdx = 0;
+      function resetToRight(card: HTMLElement) {
+        card.style.transition = 'none';
+        card.classList.remove('card-active', 'card-prev', 'card-next', 'card-exit');
+        void card.offsetWidth;
+        card.style.transition = '';
+      }
+      function advance() {
+        const prevIdx  = ((activeIdx - 1) % n + n) % n;
+        const curIdx   = activeIdx;
+        const nxtIdx   = (activeIdx + 1) % n;
+        const afterIdx = (activeIdx + 2) % n;
+        if (cards[prevIdx].classList.contains('card-prev')) {
+          cards[prevIdx].classList.remove('card-prev');
+          cards[prevIdx].classList.add('card-exit');
+        }
+        cards[curIdx].classList.remove('card-active');
+        cards[curIdx].classList.add('card-prev');
+        cards[nxtIdx].classList.remove('card-next');
+        cards[nxtIdx].classList.add('card-active');
+        if (cards[afterIdx].classList.contains('card-exit')) resetToRight(cards[afterIdx]);
+        cards[afterIdx].classList.add('card-next');
+        activeIdx = nxtIdx;
+      }
+      setTimeout(() => { advance(); setInterval(advance, 3500); }, 3000);
+    })();
+  </script>
+
+  <!-- ── Surveillance ── -->
+  <section id="surveillance" class="bg-canvas section-pad">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
+        <div class="fade-up">
+          <p class="eyebrow">01 — Surveillance</p>
+          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
+            See everything that matters. From anywhere.
+          </h2>
+          <p class="font-body text-ink-muted leading-relaxed mb-4">
+            Video surveillance is the most effective tool there is for reducing property loss and damage — but only if the cameras are right for the job. Whether you need a brand-new system or an upgrade to what you already have, we partner with top camera manufacturers and design every solution from scratch: the right cameras, the right lenses, the right placement for your specific risks.
+          </p>
+          <p class="font-body text-ink-muted leading-relaxed mb-4">
+            Thermal cameras and radar/sound detection for perimeter protection, discreet domes for retail, network or analog — whatever your situation calls for. It starts with a full assessment of your site. We listen, we walk the property, and we build the solution together.
+          </p>
+          <p class="font-body text-ink-muted leading-relaxed">
+            Then you watch it all from your phone or any computer.
+          </p>
+        </div>
+        <div class="fade-up">
+          <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">Video Analytics</p>
+          <ul class="flex flex-col">
+            {[
+              ['Auto tracking',          'Cameras that follow movement across parking lots and open spaces'],
+              ['Heat mapping',           'See traffic patterns based on visitor density and duration'],
+              ['People counting',        'Know exactly how many people enter and exit any defined area'],
+              ['License plate recognition', 'Capture searchable plate data, and use plates to open gates and garages'],
+              ['Audio analytics',        'Detect aggression, glass break, and other sound events'],
+            ].map(([title, desc]) => (
+              <li class="py-5 flex items-start gap-4">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                <div>
+                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
+                  <p class="font-body text-sm text-ink-muted">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Access Control ── -->
+  <section id="access-control" class="bg-canvas section-pad">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
+        <div class="fade-up">
+          <p class="eyebrow">02 — Access Control</p>
+          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
+            The right people in. Everyone else out.
+          </h2>
+          <p class="font-body text-ink-muted leading-relaxed mb-4">
+            Control exactly who can enter your property, through which doors, at which times — and keep a log of every attempt for review and audit.
+          </p>
+          <p class="font-body text-ink-muted leading-relaxed">
+            For government facilities, we're experienced with FIPS 201 and PIV card access control requirements.
+          </p>
+          <div class="mt-8 flex items-center gap-3">
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">FIPS 201</span>
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">PIV Experienced</span>
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">ASSA ABLOY</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">What We Install</p>
+          <ul class="flex flex-col">
+            {[
+              ['Badge access & smart cards',       'Employee badges with role-based permissions, time-of-day rules, and full audit trail; deactivate a lost badge in seconds'],
+              ['Biometrics & two-factor auth',      'High security entry for sensitive areas'],
+              ['Touch-free entry',                  'Low energy door operators, wave-to-open switches, and electric strikes'],
+              ['Intercom systems',                  'See and speak with visitors before unlocking the door, from anywhere'],
+              ['Multi-tenant access',               'Outdoor rated intercoms — tenants buzz in guests from their own phone'],
+              ['Vehicle & perimeter access',        'Automatic gates tied to credentials or license plates, with radar and sound detection'],
+            ].map(([title, desc]) => (
+              <li class="py-5 flex items-start gap-4">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                <div>
+                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
+                  <p class="font-body text-sm text-ink-muted">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Alarms & Fire ── -->
+  <section id="alarms" class="bg-canvas section-pad">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
+        <div class="fade-up">
+          <p class="eyebrow">03 — Alarms, Monitoring & Fire</p>
+          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
+            Protection that never clocks out.
+          </h2>
+          <p class="font-body text-ink-muted leading-relaxed mb-4">
+            Intrusion alarm systems watch your space around the clock. We offer full-time monitoring with 24/7 incident response, so something happening at 3 a.m. doesn't wait until 9 a.m. to get handled.
+          </p>
+          <p class="font-body text-ink-muted leading-relaxed">
+            Fire alarm systems are designed, installed, and supported by NICET-certified technicians, including a Certified Fire Alarm Technician (CFAT) Level II. One team for security and fire means one point of accountability for the systems that protect lives.
+          </p>
+          <div class="mt-8 flex items-center gap-3 flex-wrap">
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">NICET Certified</span>
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">CFAT Level II</span>
+            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">Alarm.com</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <ul class="flex flex-col">
+            {[
+              ['Video-verified alarms',            'When a sensor trips, live camera footage confirms what\'s happening — cutting false alarms and speeding real response'],
+              ['Remote monitoring & control',       'Arm, disarm, and check status from your mobile device via Alarm.com'],
+              ['Real-time notifications',           'The moment something trips, you know'],
+              ['24/7 incident response',            'Monitoring with full response — not just a call-back at 9 a.m.'],
+              ['Personal emergency response',       'Two-way voice and GPS — proven protecting Queen Anne\'s County health workers in the field'],
+              ['NICET fire alarm systems',          'Design, installation, and ongoing support — from certified technicians'],
+            ].map(([title, desc]) => (
+              <li class="py-5 flex items-start gap-4">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                <div>
+                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
+                  <p class="font-body text-sm text-ink-muted">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Network ── -->
+  <section id="network" class="bg-canvas section-pad">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
+        <div class="fade-up">
+          <p class="eyebrow">04 — Network Infrastructure</p>
+          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
+            The backbone behind every system.
+          </h2>
+          <p class="font-body text-ink-muted leading-relaxed mb-4">
+            Every camera, badge reader, and alarm panel runs on your network — so we build that too. One contractor for security and infrastructure means no finger-pointing between vendors.
+          </p>
+          <div class="bg-canvas px-6 py-5 mt-6">
+            <p class="font-body text-[11px] font-semibold tracking-[1.2px] uppercase text-ink-muted mb-3">Case Study</p>
+            <p class="font-body text-sm text-ink leading-relaxed">
+              Complete buildout for ReLink Medical's new White Marsh warehouse — cabling, wireless access points, cameras, network rack, and cloud access control. All by one team.
+            </p>
+          </div>
+        </div>
+        <div class="fade-up">
+          <ul class="flex flex-col">
+            {[
+              ['Structured cabling',          'BICSI TECH and Corning Fiber certified'],
+              ['Network racks & equipment',   'Full equipment room buildout and management'],
+              ['WiFi & wireless access',      'Coverage planning, WAP installation, and secure guest WiFi'],
+              ['Network infrastructure',      'Design, upgrade, and Cisco certified configuration'],
+            ].map(([title, desc]) => (
+              <li class="py-5 flex items-start gap-4">
+                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+                <div>
+                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
+                  <p class="font-body text-sm text-ink-muted">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Commercial & Rentals ── -->
+  <section id="rentals" class="bg-canvas section-pad">
+    <div class="page-container">
+      <div class="fade-up mb-14">
+        <p class="eyebrow">05 — Commercial & Rentals</p>
+        <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight max-w-xl">
+          Built for the way your business actually works.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+        {[
+          { title: 'Office Space',          body: 'Protect your people, your equipment, and your data. Badge access, cameras, and alarms — plus network and WiFi upgrades while we\'re at it.' },
+          { title: 'Retail',                body: 'Cover merchandise and registers, deter theft, and add secure guest WiFi your customers will thank you for.' },
+          { title: 'Warehouse & Logistics', body: 'Watch deliveries and inventory, and cut liability exposure from personnel and equipment incidents.' },
+          { title: 'Multi-Tenant',          body: 'Modern intercom systems let tenants grant access to guests from their phone — and let you manage the whole property from your office.' },
+        ].map(s => (
+          <div class="card-base fade-up">
+            <h3 class="font-display font-semibold text-xl text-ink mb-3">{s.title}</h3>
+            <p class="font-body text-sm text-ink-muted leading-relaxed">{s.body}</p>
+          </div>
+        ))}
+
+        <!-- Trailer card -->
+        <div class="card-base fade-up md:col-span-2 lg:col-span-2">
+          <h3 class="font-display font-semibold text-xl text-ink mb-3">Mobile Surveillance Trailers</h3>
+          <p class="font-body text-sm text-ink-muted leading-relaxed mb-5">
+            Rugged, solar powered, and self contained. Delivered to your location and deployed in 10 minutes — no cords or generators required.
+          </p>
+          <div class="grid grid-cols-2 gap-x-8 gap-y-2">
+            {[
+              'Live streaming & recorded playback over cellular',
+              'Panoramic, zoom, thermal, and radar cameras',
+              'Blue strobe warning light to deter intruders',
+              'Runs indefinitely on sunlight',
+              'Short and long term rentals',
+              'Ideal for lay-down yards, construction sites, parking lots',
+            ].map(f => (
+              <p class="flex items-start gap-2 font-body text-sm text-ink-muted">
+                <span class="mt-1.5 w-1 h-1 rounded-full bg-blue-400 shrink-0"></span>
+                {f}
+              </p>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Temporary units -->
+      <div class="bg-canvas px-8 py-7 fade-up">
+        <h3 class="font-display font-semibold text-xl text-ink mb-3">Temporary Surveillance Units</h3>
+        <p class="font-body text-sm text-ink-muted leading-relaxed max-w-2xl">
+          Compact rental units with cellular connectivity, battery plus AC power, remote viewing and playback. Satisfies insurance requirements for continuous watch on sites with no or intermittent power.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="bg-canvas section-pad-sm">
+    <div class="page-container text-center fade-up">
+      <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight max-w-xl mx-auto mb-6">
+        Ready to talk through what your site needs?
+      </h2>
+      <p class="font-body text-ink-muted max-w-lg mx-auto mb-10">
+        We'll walk your property, listen to your concerns, and put together options that fit your budget. No pressure.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/contact" class="btn-primary">Get a Free Assessment</a>
+        <a href="tel:4106457121" class="btn-ghost">Call 410-645-7121</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,134 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  padTop?: boolean;
+}
+const {
+  title = 'Trican Security Inc. — Maryland Security Systems',
+  description = 'Trican Security designs, installs, and supports surveillance, badge access, alarm, fire, and network systems for businesses and government agencies across Maryland.',
+  padTop = true,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@500;600&family=Exo+2:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <Navbar />
+  <div class={padTop ? 'pt-16 lg:pt-20' : ''}>
+    <slot />
+  </div>
+  <Footer />
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Scroll reveal — batch elements that enter together so they stagger in ──
+    ScrollTrigger.batch('.fade-up', {
+      onEnter: batch => gsap.from(batch, {
+        opacity: 0,
+        y: 32,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.12,
+        clearProps: 'all',
+      }),
+      once: true,
+      start: 'top 92%',
+    });
+
+    ScrollTrigger.batch('.fade-in', {
+      onEnter: batch => gsap.from(batch, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.out',
+        stagger: 0.1,
+        clearProps: 'all',
+      }),
+      once: true,
+      start: 'top 92%',
+    });
+
+    // ── Text reveal: word-clip for headings & eyebrows ──
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const esc = (s: string) =>
+        s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+      function wrapWords(el: HTMLElement): NodeListOf<Element> | null {
+        const first = el.childNodes[0];
+        if (!first || first.nodeType !== Node.TEXT_NODE || el.childNodes.length > 1) return null;
+        const words = (first as Text).data.trim().split(/\s+/);
+        if (!words.length) return null;
+        el.innerHTML = words
+          .map(w =>
+            `<span style="display:inline-block;overflow:hidden;padding-bottom:0.12em;margin-bottom:-0.12em;">` +
+            `<span class="_wi" style="display:inline-block;">${esc(w)}</span></span>`
+          )
+          .join(' ');
+        return el.querySelectorAll('._wi');
+      }
+
+      // Hero h1 — fires on page load (above fold, no scroll trigger)
+      const heroH1 = document.querySelector<HTMLElement>('.hero-headline');
+      if (heroH1) {
+        const words = wrapWords(heroH1);
+        if (words?.length) {
+          gsap.from(words, {
+            y: '102%',
+            duration: 1.1,
+            ease: 'power4.out',
+            stagger: 0.07,
+            delay: 0.25,
+            clearProps: 'transform',
+          });
+        }
+      }
+
+      // All other h2, h3, eyebrows — scroll triggered
+      document.querySelectorAll<HTMLElement>('h2, h3, .eyebrow').forEach(el => {
+        const words = wrapWords(el);
+        if (!words?.length) return;
+        gsap.from(words, {
+          scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+          y: '102%',
+          duration: 0.75,
+          ease: 'power3.out',
+          stagger: 0.045,
+          clearProps: 'transform',
+        });
+      });
+    }
+
+    // ── Parallax — GSAP scrub, data-parallax value = yPercent to travel ──
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      gsap.utils.toArray<HTMLElement>('[data-parallax]').forEach(el => {
+        const speed = parseFloat(el.dataset.parallax ?? '0');
+        gsap.to(el, {
+          yPercent: -speed,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: el.parentElement ?? el,
+            scrub: 1.5,
+            start: 'top bottom',
+            end: 'bottom top',
+          },
+        });
+      });
+    }
+  </script>
+</body>
+</html>

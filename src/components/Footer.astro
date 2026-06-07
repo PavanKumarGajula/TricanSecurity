@@ -1,0 +1,91 @@
+---
+const services = [
+  { label: 'Surveillance',           href: '/services#surveillance'  },
+  { label: 'Access Control',         href: '/services#access-control'},
+  { label: 'Alarms & Monitoring',    href: '/services#alarms'        },
+  { label: 'Fire Alarms',            href: '/services#alarms'        },
+  { label: 'Network & Cabling',      href: '/services#network'       },
+  { label: 'Trailer Rentals',        href: '/services#rentals'       },
+];
+const company = [
+  { label: 'About',      href: '/about'      },
+  { label: 'Our Work',   href: '/work'       },
+  { label: 'Government', href: '/government' },
+  { label: 'Contact',    href: '/contact'    },
+];
+---
+
+<footer class="bg-canvas">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-20">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-14">
+
+      <!-- Brand -->
+      <div class="lg:col-span-1">
+        <a href="/" class="inline-flex items-center mb-4">
+          <span class="font-display font-semibold text-lg text-ink tracking-tight">TRICAN</span>
+          <span class="font-display font-semibold text-lg text-blue-400 tracking-tight ml-1.5">SECURITY</span>
+        </a>
+        <p class="font-body text-sm text-ink-muted leading-relaxed max-w-[220px]">
+          Every layer of protection. One team.
+        </p>
+        <div class="mt-6 flex flex-col gap-2">
+          <a href="tel:4106457121" class="font-body text-sm text-ink-muted hover:text-ink transition-colors">
+            410-645-7121
+          </a>
+          <a href="mailto:info@tricansecurity.com" class="font-body text-sm text-ink-muted hover:text-ink transition-colors">
+            info@tricansecurity.com
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">Services</p>
+        <ul class="flex flex-col gap-3">
+          {services.map(s => (
+            <li>
+              <a href={s.href} class="font-body text-sm text-ink-muted hover:text-ink transition-colors duration-200">
+                {s.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">Company</p>
+        <ul class="flex flex-col gap-3">
+          {company.map(c => (
+            <li>
+              <a href={c.href} class="font-body text-sm text-ink-muted hover:text-ink transition-colors duration-200">
+                {c.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">Get started</p>
+        <p class="font-body text-sm text-ink-muted leading-relaxed mb-5">
+          Free site assessment. No pressure, no obligation.
+        </p>
+        <a href="/contact" class="btn-primary">Free Assessment</a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <p class="font-body text-xs text-ink-muted">
+        © {new Date().getFullYear()} Trican Security Inc. All rights reserved.
+      </p>
+      <p class="font-body text-xs text-ink-muted">
+        Licensed & Insured · MBE Certified · AXIS · Milestone MCBP · NICET Fire · VA DCJS Licensed
+      </p>
+    </div>
+  </div>
+</footer>
