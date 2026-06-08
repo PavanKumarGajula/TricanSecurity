@@ -94,8 +94,9 @@
   --grid-cell-size:  60px;
 
   /* ── Clip paths (hero / icon shapes) ── */
-  --clip-cta:  polygon(0 0, 100% 0, 100% 70%, 95% 100%, 0 100%);
-  --clip-icon: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+  --clip-cta:       polygon(0 0, 100% 0, 100% 70%, 95% 100%, 0 100%);
+  --clip-cta-hover: polygon(0 0, 100% 0, 100% 58%, 91% 100%, 0 100%);
+  --clip-icon:      polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
 
   /* ── Motion ── */
   --duration-card:   300ms;
@@ -135,4 +136,24 @@
 
   --msg-info-bg:        rgba(0,   153, 255, .08);
   --msg-info-border:    #014078;
+
+  /* ── Featured Project — phone mockup shell ── */
+  --color-phone-border:    rgba(255, 255, 255, .12);
+  --shadow-phone:          inset 0 0 0 1px rgba(255,255,255,.12),
+                           0 0 0 1px rgba(255,255,255,.04),
+                           0 30px 70px rgba(0,0,0,.60);
+  --color-fp-connector:    rgba(255, 255, 255, .26);
+
+  /* ── Featured Project — phone app interior (light-mode mockup) ── */
+  --color-app-bg:          #fafafa;
+  --color-app-ink:         #171717;
+  --color-app-ink-sub:     #8a8a8a;
+  --color-app-ink-dim:     #6b7280;
+  --color-app-border:      #e4e4e4;
+  --color-app-surface:     #eef0f2;
+  --color-app-divider:     #ececec;
+  --color-app-armed-bg:    rgba(34,  197, 94,  .12);
+  --color-app-armed-ring:  rgba(34,  197, 94,  .40);
+  --color-app-granted-bg:  rgba(34,  197, 94,  .14);
+  --color-app-denied-bg:   rgba(239, 68,  68,  .12);
 }

@@ -29,11 +29,13 @@ const company = [
         <p class="font-body text-sm text-ink-muted leading-relaxed max-w-[220px]">
           Every layer of protection. One team.
         </p>
-        <div class="mt-6 flex flex-col gap-2">
-          <a href="tel:4106457121" class="font-body text-sm text-ink-muted hover:text-ink transition-colors">
+        <div class="mt-6 flex flex-col gap-3">
+          <a href="tel:4106457121" class="footer-contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.91 19.79 19.79 0 01.01 1.27 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
             410-645-7121
           </a>
-          <a href="mailto:info@tricansecurity.com" class="font-body text-sm text-ink-muted hover:text-ink transition-colors">
+          <a href="mailto:info@tricansecurity.com" class="footer-contact-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             info@tricansecurity.com
           </a>
         </div>
@@ -79,13 +81,76 @@ const company = [
     </div>
 
     <!-- Bottom bar -->
-    <div class="pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div class="footer-bottom">
       <p class="font-body text-xs text-ink-muted">
         © {new Date().getFullYear()} Trican Security Inc. All rights reserved.
       </p>
-      <p class="font-body text-xs text-ink-muted">
-        Licensed & Insured · MBE Certified · AXIS · Milestone MCBP · NICET Fire · VA DCJS Licensed
+
+      <div class="footer-legal">
+        <a href="/privacy-policy" class="footer-legal-link">Privacy Policy</a>
+        <span class="footer-legal-sep" aria-hidden="true"></span>
+        <a href="/terms" class="footer-legal-link">Terms of Service</a>
+        <span class="footer-legal-sep" aria-hidden="true"></span>
+        <a href="/sitemap" class="footer-legal-link">Sitemap</a>
+      </div>
+
+      <p class="font-body text-xs text-ink-muted footer-certs">
+        Licensed &amp; Insured · MBE Certified · AXIS · Milestone MCBP · NICET Fire · VA DCJS
       </p>
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-bottom {
+    border-top: 1px solid var(--color-hairline);
+    padding-top: 28px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .footer-legal {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .footer-legal-link {
+    font-family: var(--font-body);
+    font-size: 12px;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .footer-legal-link:hover { color: var(--color-ink); }
+  .footer-legal-sep {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--color-hairline);
+    flex-shrink: 0;
+  }
+
+  .footer-certs {
+    text-align: right;
+  }
+
+  .footer-contact-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+  }
+  .footer-contact-link:hover { color: var(--color-ink); }
+
+  @media (max-width: 768px) {
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .footer-certs  { text-align: left; }
+  }
+</style>
