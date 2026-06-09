@@ -213,6 +213,17 @@ const services = [
         </div>
       </div>
 
+      <!-- Card navigation — visible on mobile & tablet only -->
+      <div class="wwd-arrows">
+        <button class="wwd-arrow wwd-arrow-prev" aria-label="Previous service" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        </button>
+        <span class="wwd-arrow-label">1 / 6</span>
+        <button class="wwd-arrow wwd-arrow-next" aria-label="Next service">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
     </div>
   </section>
 
@@ -1293,6 +1304,141 @@ const services = [
 
   </style>
 
+  <style is:global>
+  /* ═══════════════════════════════════════════════════════
+     RESPONSIVE: MOBILE & TABLET
+     All rules are max-width scoped — zero impact on desktop.
+  ═══════════════════════════════════════════════════════ */
+
+  /* ── Video Hero: prevent content overlapping the thumbnail bar ──
+     Bottom clearances match the responsive thumbnail heights:
+       desktop > 1024px  → 180 px boxes (no rule needed, base inset:0)
+       tablet  601–1024px → 140 px boxes
+       mobile  ≤ 600px   → 110 px boxes                              */
+
+  /* Tablet landscape 881–1024px: 140px box + 36px padding = 176px bar */
+  @media (max-width: 1024px) {
+    .vhero-inner { top: 72px; bottom: 196px; }
+  }
+
+  /* Small tablet / large phone 601–880px: bar stacks vertically
+     tagline (~20px) + gap (16px) + 140px box + 28px padding ≈ 204px  */
+  @media (max-width: 880px) {
+    .vhero-inner { top: 72px; bottom: 220px; }
+  }
+
+  /* Mobile ≤ 600px: single 110px box + 36px padding = 146px bar */
+  @media (max-width: 600px) {
+    .vhero-inner  { top: 60px; bottom: 168px; padding: 0 20px; }
+    .vhero-h1     { font-size: clamp(28px, 9vw, 40px); margin-bottom: 12px; }
+    .vhero-body   { font-size: 14px; max-width: 100%; margin-bottom: 20px; }
+    .vhero-proof  { margin-top: 14px; }
+  }
+
+  /* ── What We Do ── */
+
+  /* Mobile & tablet: CSS scroll + snap (GSAP only fires at ≥ 1025px now) */
+  @media (max-width: 1024px) {
+    .wwd-row-clip  { overflow-x: auto; overflow-y: visible; }
+    .wwd-row-clip::-webkit-scrollbar { display: none; }
+    .wwd-cards     { scroll-snap-type: x mandatory; scrollbar-width: none; padding-right: 32px; }
+    .wwd-card-wrap { scroll-snap-align: start; }
+    .wwd-card      { width: min(298px, 78vw); }
+  }
+
+  /* Mobile ≤ 767px: tighter layout, hide timeline */
+  @media (max-width: 767px) {
+    .wwd-band     { padding: 52px 0 60px; }
+    .wwd-head     { margin-bottom: 36px; text-align: left; }
+    .wwd-timeline { display: none; }
+    .wwd-card     { width: min(280px, 78vw); }
+  }
+
+  /* Tablet 768–1024px: a bit more vertical breathing room */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .wwd-band { padding: 64px 0 80px; }
+  }
+
+  /* ── Card navigation arrows ── */
+  .wwd-arrows { display: none; }
+
+  @media (max-width: 1024px) {
+    .wwd-arrows {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+    }
+  }
+
+  .wwd-arrow {
+    width: 46px; height: 46px;
+    border-radius: 50%;
+    background: var(--color-surface-1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    border: 1px solid var(--color-hairline);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--color-ink);
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.15s ease, transform 0.12s ease;
+    padding: 0;
+  }
+  .wwd-arrow:hover:not(:disabled) { background: var(--color-surface-2); }
+  .wwd-arrow:active:not(:disabled) { transform: scale(0.93); }
+  .wwd-arrow:disabled { opacity: 0.22; cursor: default; }
+  .wwd-arrow svg { width: 16px; height: 16px; pointer-events: none; }
+
+  .wwd-arrow-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--color-ink-muted);
+    min-width: 36px;
+    text-align: center;
+  }
+
+  /* ── Why Trican ── */
+
+  /* ≤ 1020px: 2-col; reduce cramped column gap */
+  @media (max-width: 1020px) {
+    .why-band      { padding: 52px 0 60px; }
+    .why-grid      { column-gap: 28px; }
+    .why-area-head { margin-bottom: 36px; }
+  }
+
+  /* ≤ 680px: 1-col layout
+     FIX: why-col-mid kept grid-column:2, creating an implicit
+     second column and breaking the single-column stack. */
+  @media (max-width: 680px) {
+    .why-band      { padding: 44px 0 52px; }
+    .why-col-mid   { grid-column: 1; grid-row: 4; }
+    .why-col-photo { grid-row: 5; }
+    .why-widget    { max-width: 100%; }
+    .why-body      { max-width: 100%; }
+    .why-hr        { max-width: 100%; }
+    .why-feature   { max-width: 100%; }
+    .why-photo     { min-height: 220px; }
+  }
+
+  /* ── Featured Project ── */
+
+  /* ≤ 920px: show phone first for better visual flow */
+  @media (max-width: 920px) {
+    .fp-band      { padding: 52px 0 64px; }
+    .fp-phone-col { order: -1; }
+  }
+
+  /* ≤ 480px: single-col callouts; scale phone down */
+  @media (max-width: 480px) {
+    .fp-col   { grid-template-columns: 1fr; gap: 12px; }
+    .fp-phone { width: min(268px, 82vw); }
+  }
+
+  </style>
+
   <script>
     import { gsap } from 'gsap';
     import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -1305,7 +1451,7 @@ const services = [
 
     if (
       band && clip && cards &&
-      window.matchMedia('(min-width: 768px)').matches &&
+      window.matchMedia('(min-width: 1025px)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
       const getX = () => -(cards.scrollWidth - clip.offsetWidth);
@@ -1323,6 +1469,40 @@ const services = [
           invalidateOnRefresh: true,
         },
       });
+    }
+
+    // ── Card navigation arrows (mobile & tablet only) ──────────────
+    const prevBtn = document.querySelector<HTMLButtonElement>('.wwd-arrow-prev');
+    const nextBtn = document.querySelector<HTMLButtonElement>('.wwd-arrow-next');
+    const labelEl = document.querySelector<HTMLElement>('.wwd-arrow-label');
+    const totalCards = document.querySelectorAll('.wwd-card-wrap').length;
+
+    if (clip && prevBtn && nextBtn) {
+      const cardStep = () => {
+        const first = clip.querySelector<HTMLElement>('.wwd-card');
+        return first ? first.offsetWidth + 24 : 320;
+      };
+
+      const currentIndex = () =>
+        Math.min(Math.round(clip.scrollLeft / cardStep()), totalCards - 1);
+
+      const sync = () => {
+        const idx = currentIndex();
+        prevBtn.disabled = idx <= 0;
+        nextBtn.disabled = idx >= totalCards - 1;
+        if (labelEl) labelEl.textContent = `${idx + 1} / ${totalCards}`;
+      };
+
+      prevBtn.addEventListener('click', () => {
+        clip.scrollBy({ left: -cardStep(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        clip.scrollBy({ left: cardStep(), behavior: 'smooth' });
+      });
+
+      clip.addEventListener('scroll', sync, { passive: true });
+      sync();
     }
   </script>
 

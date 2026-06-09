@@ -6,18 +6,22 @@ const CARDS = [
   { src: '/videos/queen-annes.mp4', poster: '/images/queen-annes-poster.jpg', caption: 'Network & Connectivity' },
 ];
 
-const W        = 180;
-const H        = 180; // square
-const BR       = 3;   // border-radius — sharp corners suit a security brand
-const SW       = 6;   // stroke width — doubled
-const DURATION = 5;   // seconds per card
+const BR       = 3;  // border-radius — sharp corners suit a security brand
+const SW       = 6;  // stroke width — doubled
+const DURATION = 5;  // seconds per card
 
-// SVG rect inset by half the stroke so it sits on the card edge
-const inset = SW / 2;
-const RX = inset, RY = inset;
-const RW = W - SW, RH = H - SW;
-// Perimeter of the rounded rect
-const PERIM = 2 * (RW - 2 * BR) + 2 * (RH - 2 * BR) + 2 * Math.PI * BR;
+function getCardSize(): number {
+  if (typeof window === 'undefined') return 180;
+  if (window.innerWidth <= 600)  return 110;
+  if (window.innerWidth <= 1024) return 140;
+  return 180;
+}
+
+function calcPerim(size: number): number {
+  const RW = size - SW;
+  const RH = size - SW;
+  return 2 * (RW - 2 * BR) + 2 * (RH - 2 * BR) + 2 * Math.PI * BR;
+}
 
 interface Props { className?: string; }
 
@@ -26,6 +30,17 @@ export default function VideoThumbs({ className }: Props) {
   const [reduced] = useState(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
+  const [cardSize, setCardSize] = useState(getCardSize);
+
+  // Keep perimRef current so the RAF closure always uses the right value
+  const perimRef = useRef(calcPerim(cardSize));
+  useEffect(() => { perimRef.current = calcPerim(cardSize); }, [cardSize]);
+
+  useEffect(() => {
+    const onResize = () => setCardSize(getCardSize());
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   const videoRefs  = useRef<(HTMLVideoElement | null)[]>([null, null, null]);
   const strokeRefs = useRef<(SVGRectElement   | null)[]>([null, null, null]);
@@ -56,7 +71,7 @@ export default function VideoThumbs({ className }: Props) {
     startRef.current = performance.now();
     const run = (now: number) => {
       const p = Math.min((now - startRef.current) / (DURATION * 1000), 1);
-      rect.style.strokeDashoffset = String(PERIM * (1 - p));
+      rect.style.strokeDashoffset = String(perimRef.current * (1 - p));
       rafRef.current = requestAnimationFrame(run);
     };
     rafRef.current = requestAnimationFrame(run);
@@ -71,7 +86,7 @@ export default function VideoThumbs({ className }: Props) {
       // don't reset currentTime — avoids black frame on seek
     });
     // Reset all progress strokes
-    strokeRefs.current.forEach(r => { if (r) r.style.strokeDashoffset = String(PERIM); });
+    strokeRefs.current.forEach(r => { if (r) r.style.strokeDashoffset = String(perimRef.current); });
 
     const vid = videoRefs.current[idx];
     if (!vid) return;
@@ -137,6 +152,13 @@ export default function VideoThumbs({ className }: Props) {
     }
   };
 
+  // Derived geometry — recomputed on every render when cardSize changes
+  const inset = SW / 2;
+  const RX = inset, RY = inset;
+  const RW = cardSize - SW;
+  const RH = cardSize - SW;
+  const PERIM = calcPerim(cardSize);
+
   return (
     <div ref={containerRef} className={className} style={{ display: 'flex', gap: 14, alignItems: 'flex-end' }}>
       {CARDS.map((card, i) => {
@@ -148,8 +170,8 @@ export default function VideoThumbs({ className }: Props) {
             aria-label={card.caption}
             style={{
               position: 'relative',
-              width: W,
-              height: H,
+              width: cardSize,
+              height: cardSize,
               borderRadius: BR,
               flexShrink: 0,
               cursor: 'pointer',
@@ -222,8 +244,8 @@ export default function VideoThumbs({ className }: Props) {
             <svg
               aria-hidden="true"
               style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'visible' }}
-              width={W}
-              height={H}
+              width={cardSize}
+              height={cardSize}
               fill="none"
             >
               {/* Static track ring */}

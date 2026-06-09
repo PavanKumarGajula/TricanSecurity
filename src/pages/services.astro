@@ -9,340 +9,1233 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 >
 
   <!-- ── Hero ── -->
-  <section class="hero">
-    <div class="hero-stage" id="stage">
+  <section class="svc-hero">
 
-      <div class="hero-meta-top hero-label">
-        <span class="hero-rec"><i></i>REC<span class="hero-ts" id="ts"></span></span>
-      </div>
-
-      <div class="hero-eyebrow-row">
-        <span class="hero-armed">
-          <i></i>
-          <span class="hero-kicker-text">Every layer of protection. One team.</span>
-        </span>
-      </div>
-
-      <div class="hero-type">
-        <h1>
-          <div class="hero-line"><span>Security services that work as one system.</span></div>
-        </h1>
-        <p class="hero-sub">Cameras, badges, alarms, fire panels, and networks designed to work together — from a single storefront to a 100,000 sq ft campus. Installed and supported by one team.</p>
-      </div>
-
-      <div class="hero-objpos" aria-hidden="true">
-        <div class="hero-objpx" id="hero-objpx">
-          <div class="hero-img-card"><img src="/images/hero-camera.png" alt="" /></div>
-          <div class="hero-img-card"><img src="/images/badge-hero.png"  alt="" /></div>
-          <div class="hero-img-card hero-img-card--alarm"><img src="/images/alarm-hero.png" alt="" /></div>
-          <div class="hero-img-card"><img src="/images/network-hero.png" alt="" /></div>
-        </div>
-      </div>
-
-      <div class="hero-foot">
-        <div class="hero-call">
-          <a class="btn-primary" href="#surveillance">Explore services</a>
-          <a class="btn-secondary" href="/contact">Get a free assessment</a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <script>
-    const tsEl = document.getElementById('ts') as HTMLElement | null;
-    function tick() {
-      if (!tsEl) return;
-      const d = new Date(), p = (n: number) => String(n).padStart(2, '0');
-      tsEl.textContent = ` ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}`;
-    }
-    tick(); setInterval(tick, 1000);
-
-    const siteNav = document.getElementById('site-nav') as HTMLElement | null;
-    if (siteNav) siteNav.classList.add('nav-scrolled');
-
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    (function () {
-      const cards = [...document.querySelectorAll<HTMLElement>('.hero-img-card')];
-      if (!cards.length) return;
-      const n = cards.length;
-      cards[0].classList.add('card-active');
-      if (reduced || n < 2) return;
-      cards[1].classList.add('card-next');
-      let activeIdx = 0;
-      function resetToRight(card: HTMLElement) {
-        card.style.transition = 'none';
-        card.classList.remove('card-active', 'card-prev', 'card-next', 'card-exit');
-        void card.offsetWidth;
-        card.style.transition = '';
-      }
-      function advance() {
-        const prevIdx  = ((activeIdx - 1) % n + n) % n;
-        const curIdx   = activeIdx;
-        const nxtIdx   = (activeIdx + 1) % n;
-        const afterIdx = (activeIdx + 2) % n;
-        if (cards[prevIdx].classList.contains('card-prev')) {
-          cards[prevIdx].classList.remove('card-prev');
-          cards[prevIdx].classList.add('card-exit');
-        }
-        cards[curIdx].classList.remove('card-active');
-        cards[curIdx].classList.add('card-prev');
-        cards[nxtIdx].classList.remove('card-next');
-        cards[nxtIdx].classList.add('card-active');
-        if (cards[afterIdx].classList.contains('card-exit')) resetToRight(cards[afterIdx]);
-        cards[afterIdx].classList.add('card-next');
-        activeIdx = nxtIdx;
-      }
-      setTimeout(() => { advance(); setInterval(advance, 3500); }, 3000);
-    })();
-  </script>
-
-  <!-- ── Surveillance ── -->
-  <section id="surveillance" class="bg-canvas section-pad">
-    <div class="page-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-        <div class="fade-up">
-          <p class="eyebrow">01 — Surveillance</p>
-          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
-            See everything that matters. From anywhere.
-          </h2>
-          <p class="font-body text-ink-muted leading-relaxed mb-4">
-            Video surveillance is the most effective tool there is for reducing property loss and damage — but only if the cameras are right for the job. Whether you need a brand-new system or an upgrade to what you already have, we partner with top camera manufacturers and design every solution from scratch: the right cameras, the right lenses, the right placement for your specific risks.
-          </p>
-          <p class="font-body text-ink-muted leading-relaxed mb-4">
-            Thermal cameras and radar/sound detection for perimeter protection, discreet domes for retail, network or analog — whatever your situation calls for. It starts with a full assessment of your site. We listen, we walk the property, and we build the solution together.
-          </p>
-          <p class="font-body text-ink-muted leading-relaxed">
-            Then you watch it all from your phone or any computer.
-          </p>
-        </div>
-        <div class="fade-up">
-          <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">Video Analytics</p>
-          <ul class="flex flex-col">
-            {[
-              ['Auto tracking',          'Cameras that follow movement across parking lots and open spaces'],
-              ['Heat mapping',           'See traffic patterns based on visitor density and duration'],
-              ['People counting',        'Know exactly how many people enter and exit any defined area'],
-              ['License plate recognition', 'Capture searchable plate data, and use plates to open gates and garages'],
-              ['Audio analytics',        'Detect aggression, glass break, and other sound events'],
-            ].map(([title, desc]) => (
-              <li class="py-5 flex items-start gap-4">
-                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
-                <div>
-                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
-                  <p class="font-body text-sm text-ink-muted">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+    <div class="svc-hero-content">
+      <span class="svc-kicker">
+        <span class="svc-kicker-dot" aria-hidden="true"></span>
+        Every layer of protection. One team.
+        <span class="svc-kicker-dot" aria-hidden="true"></span>
+      </span>
+      <h1 class="svc-hero-h1">Cameras, badges, alarms, fire, network. One team builds it all.</h1>
+      <p class="svc-hero-sub"><b>Locally owned and Maryland-based.</b> One team for surveillance, access, alarms, fire, and network — across Maryland, the Baltimore–Washington corridor, and Virginia.</p>
+      <div class="svc-hero-actions">
+        <a class="btn-primary" href="/contact">Get a Free Assessment</a>
+        <a class="btn-ghost" href="tel:4106457121">Call 410-645-7121</a>
       </div>
     </div>
-  </section>
 
-  <!-- ── Access Control ── -->
-  <section id="access-control" class="bg-canvas section-pad">
-    <div class="page-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-        <div class="fade-up">
-          <p class="eyebrow">02 — Access Control</p>
-          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
-            The right people in. Everyone else out.
-          </h2>
-          <p class="font-body text-ink-muted leading-relaxed mb-4">
-            Control exactly who can enter your property, through which doors, at which times — and keep a log of every attempt for review and audit.
-          </p>
-          <p class="font-body text-ink-muted leading-relaxed">
-            For government facilities, we're experienced with FIPS 201 and PIV card access control requirements.
-          </p>
-          <div class="mt-8 flex items-center gap-3">
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">FIPS 201</span>
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">PIV Experienced</span>
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">ASSA ABLOY</span>
+    <div class="svc-strip-wrap">
+      <div class="svc-strip-label">
+        <span class="svc-strip-ln" aria-hidden="true"></span>
+        <span class="svc-strip-t">Selected work · Maryland &amp; the DC region</span>
+        <span class="svc-strip-ln" aria-hidden="true"></span>
+      </div>
+      <div class="svc-strip" aria-hidden="true">
+        <div class="svc-track">
+          <!-- set 1 -->
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wwd-surveillance.jpg" alt="" class="svc-wimg" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Evangel Cathedral · Smart card + video</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wearable_pendant.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Queen Anne's County · Mobile health units</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/network-hero.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">ReLink Medical · Network buildout</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/mobile_surveillance.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Mobile surveillance trailer</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wwd-access.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Badge access &amp; smart cards</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/alarm-hero.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Fire alarm systems · NICET certified</span></div>
+          </div>
+          <!-- set 2 (duplicate for seamless loop) -->
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wwd-surveillance.jpg" alt="" class="svc-wimg" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Evangel Cathedral · Smart card + video</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wearable_pendant.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Queen Anne's County · Mobile health units</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/network-hero.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">ReLink Medical · Network buildout</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/mobile_surveillance.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Mobile surveillance trailer</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/wwd-access.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Badge access &amp; smart cards</span></div>
+          </div>
+          <div class="svc-wcard">
+            <div class="svc-wthumb">
+              <span class="svc-vfc svc-vfc-a"></span><span class="svc-vfc svc-vfc-b"></span>
+              <img src="/images/alarm-hero.png" alt="" class="svc-wimg svc-wimg--contain" />
+            </div>
+            <div class="svc-wfoot"><span class="svc-wonline"></span><span class="svc-wcap">Fire alarm systems · NICET certified</span></div>
           </div>
         </div>
-        <div class="fade-up">
-          <p class="font-body font-semibold text-[11px] tracking-[1.4px] uppercase text-ink-muted mb-5">What We Install</p>
-          <ul class="flex flex-col">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ── Sticky Services Nav ── -->
+  <nav class="svc-nav" id="svc-nav" aria-label="Jump to service">
+    <div class="svc-nav-inner">
+      <a href="#surveillance"  class="svc-nav-link" data-target="surveillance">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="9" rx="2"/><path d="M15 9l7-3v9l-7-3"/></svg>
+        Surveillance
+      </a>
+      <span class="svc-nav-sep" aria-hidden="true"></span>
+      <a href="#access-control" class="svc-nav-link" data-target="access-control">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="12" height="18" rx="2"/><circle cx="10" cy="9" r="2"/><path d="M7 17c.6-2 5.4-2 6 0"/></svg>
+        Access Control
+      </a>
+      <span class="svc-nav-sep" aria-hidden="true"></span>
+      <a href="#alarms" class="svc-nav-link" data-target="alarms">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+        Alarms &amp; Fire
+      </a>
+      <span class="svc-nav-sep" aria-hidden="true"></span>
+      <a href="#network" class="svc-nav-link" data-target="network">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="7" rx="1.5"/><rect x="3" y="13" width="18" height="7" rx="1.5"/><circle cx="7" cy="7.5" r=".7"/><circle cx="7" cy="16.5" r=".7"/></svg>
+        Network
+      </a>
+      <span class="svc-nav-sep" aria-hidden="true"></span>
+      <a href="#rentals" class="svc-nav-link" data-target="rentals">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="15" height="9" rx="1.5"/><circle cx="7" cy="18.5" r="1.8"/><circle cx="14" cy="18.5" r="1.8"/><path d="M17 11h5"/></svg>
+        Commercial &amp; Rentals
+      </a>
+    </div>
+  </nav>
+
+
+  <!-- ── 01 Surveillance ── -->
+  <section id="surveillance" class="svc-section svc-surv">
+    <div class="svc-num" aria-hidden="true">01</div>
+    <div class="page-container">
+      <div class="svc-layout">
+
+        <div class="svc-left fade-up">
+          <p class="svc-eyebrow">01 — Surveillance</p>
+          <h2 class="svc-heading">See everything that matters. From anywhere.</h2>
+          <p class="svc-lead">Video surveillance is the most effective tool there is for reducing property loss and damage — but only if the cameras are right for the job. We partner with top camera manufacturers and design every solution from scratch.</p>
+          <p class="svc-body">Thermal cameras and radar/sound detection for perimeter protection, discreet domes for retail, network or analog — whatever your situation calls for. It starts with a full assessment of your site.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">AXIS Certified</span>
+            <span class="svc-tag">Milestone MCBP</span>
+            <span class="svc-tag">Thermal &amp; Radar</span>
+          </div>
+          <a href="/contact" class="svc-inline-cta">
+            Request a surveillance assessment
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="svc-right fade-up">
+          <p class="svc-feat-label">Video Analytics</p>
+          <ul class="svc-feat-list">
             {[
-              ['Badge access & smart cards',       'Employee badges with role-based permissions, time-of-day rules, and full audit trail; deactivate a lost badge in seconds'],
-              ['Biometrics & two-factor auth',      'High security entry for sensitive areas'],
-              ['Touch-free entry',                  'Low energy door operators, wave-to-open switches, and electric strikes'],
-              ['Intercom systems',                  'See and speak with visitors before unlocking the door, from anywhere'],
-              ['Multi-tenant access',               'Outdoor rated intercoms — tenants buzz in guests from their own phone'],
-              ['Vehicle & perimeter access',        'Automatic gates tied to credentials or license plates, with radar and sound detection'],
+              ['Auto tracking',             'Cameras that follow movement across parking lots and open spaces'],
+              ['Heat mapping',              'See traffic patterns based on visitor density and duration'],
+              ['People counting',           'Know exactly how many people enter and exit any defined area'],
+              ['License plate recognition', 'Capture searchable plate data — use plates to open gates and garages'],
+              ['Audio analytics',           'Detect aggression, glass break, and other sound events'],
             ].map(([title, desc]) => (
-              <li class="py-5 flex items-start gap-4">
-                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
+              <li class="svc-feat">
+                <span class="svc-feat-dot" aria-hidden="true"></span>
                 <div>
-                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
-                  <p class="font-body text-sm text-ink-muted">{desc}</p>
+                  <p class="svc-feat-title">{title}</p>
+                  <p class="svc-feat-body">{desc}</p>
                 </div>
               </li>
             ))}
           </ul>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── Alarms & Fire ── -->
-  <section id="alarms" class="bg-canvas section-pad">
+
+  <!-- ── 02 Access Control ── -->
+  <section id="access-control" class="svc-section svc-access">
+    <div class="svc-num" aria-hidden="true">02</div>
     <div class="page-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-        <div class="fade-up">
-          <p class="eyebrow">03 — Alarms, Monitoring & Fire</p>
-          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
-            Protection that never clocks out.
-          </h2>
-          <p class="font-body text-ink-muted leading-relaxed mb-4">
-            Intrusion alarm systems watch your space around the clock. We offer full-time monitoring with 24/7 incident response, so something happening at 3 a.m. doesn't wait until 9 a.m. to get handled.
-          </p>
-          <p class="font-body text-ink-muted leading-relaxed">
-            Fire alarm systems are designed, installed, and supported by NICET-certified technicians, including a Certified Fire Alarm Technician (CFAT) Level II. One team for security and fire means one point of accountability for the systems that protect lives.
-          </p>
-          <div class="mt-8 flex items-center gap-3 flex-wrap">
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">NICET Certified</span>
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">CFAT Level II</span>
-            <span class="inline-block font-body text-xs font-semibold tracking-widest uppercase text-blue-400 border border-blue-400/30 px-3 py-1">Alarm.com</span>
+      <div class="svc-layout svc-layout--flip">
+
+        <div class="svc-right fade-up">
+          <p class="svc-feat-label">What We Install</p>
+          <ul class="svc-feat-list">
+            {[
+              ['Badge access & smart cards',  'Employee badges with role-based permissions, time-of-day rules, and full audit trail; deactivate a lost badge in seconds'],
+              ['Biometrics & two-factor auth', 'High security entry for sensitive areas'],
+              ['Touch-free entry',            'Low energy door operators, wave-to-open switches, and electric strikes'],
+              ['Intercom systems',            'See and speak with visitors before unlocking the door, from anywhere'],
+              ['Multi-tenant access',         'Outdoor rated intercoms — tenants buzz in guests from their own phone'],
+              ['Vehicle & perimeter access',  'Automatic gates tied to credentials or license plates, with radar and sound detection'],
+            ].map(([title, desc]) => (
+              <li class="svc-feat">
+                <span class="svc-feat-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="svc-feat-title">{title}</p>
+                  <p class="svc-feat-body">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="svc-left fade-up">
+          <p class="svc-eyebrow">02 — Access Control</p>
+          <h2 class="svc-heading">The right people in. Everyone else out.</h2>
+          <p class="svc-lead">Control exactly who can enter your property, through which doors, at which times — and keep a log of every attempt for review and audit.</p>
+          <p class="svc-body">For government facilities, we're experienced with FIPS 201 and PIV card access control requirements — the compliance standard for federal sites.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">FIPS 201</span>
+            <span class="svc-tag">PIV Experienced</span>
+            <span class="svc-tag">ASSA ABLOY</span>
+          </div>
+          <a href="/contact" class="svc-inline-cta">
+            Discuss your access control needs
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── 03 Alarms & Fire ── -->
+  <section id="alarms" class="svc-section svc-fire">
+    <div class="svc-num" aria-hidden="true">03</div>
+    <div class="page-container">
+      <div class="svc-layout">
+
+        <div class="svc-left fade-up">
+          <p class="svc-eyebrow">03 — Alarms, Monitoring &amp; Fire</p>
+          <h2 class="svc-heading">Protection that never clocks out.</h2>
+          <p class="svc-lead">Intrusion alarm systems watch your space around the clock. We offer full-time monitoring with 24/7 incident response, so something happening at 3 a.m. doesn't wait until 9 a.m. to get handled.</p>
+          <p class="svc-body">Fire alarm systems are designed, installed, and supported by NICET-certified technicians, including a Certified Fire Alarm Technician (CFAT) Level II. One team for security and fire — one point of accountability.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">NICET Certified</span>
+            <span class="svc-tag">CFAT Level II</span>
+            <span class="svc-tag">Alarm.com</span>
+          </div>
+          <a href="/contact" class="svc-inline-cta">
+            Get monitoring coverage
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="svc-right fade-up">
+          <p class="svc-feat-label">Services Included</p>
+          <ul class="svc-feat-list">
+            {[
+              ['Video-verified alarms',      "When a sensor trips, live camera footage confirms what's happening — cutting false alarms and speeding real response"],
+              ['Remote monitoring & control', 'Arm, disarm, and check status from your mobile device via Alarm.com'],
+              ['Real-time notifications',    'The moment something trips, you know'],
+              ['24/7 incident response',     'Monitoring with full response — not just a call-back at 9 a.m.'],
+              ['Personal emergency response',"Two-way voice and GPS — proven protecting Queen Anne's County health workers in the field"],
+              ['NICET fire alarm systems',   'Design, installation, and ongoing support from certified technicians'],
+            ].map(([title, desc]) => (
+              <li class="svc-feat">
+                <span class="svc-feat-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="svc-feat-title">{title}</p>
+                  <p class="svc-feat-body">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── 04 Network ── -->
+  <section id="network" class="svc-section svc-network">
+    <div class="svc-num" aria-hidden="true">04</div>
+    <div class="page-container">
+      <div class="svc-layout svc-layout--flip">
+
+        <div class="svc-right fade-up">
+          <p class="svc-feat-label">What We Build</p>
+          <ul class="svc-feat-list">
+            {[
+              ['Structured cabling',        'BICSI TECH and Corning Fiber certified'],
+              ['Network racks & equipment', 'Full equipment room buildout and management'],
+              ['WiFi & wireless access',    'Coverage planning, WAP installation, and secure guest WiFi'],
+              ['Network infrastructure',    'Design, upgrade, and Cisco certified configuration'],
+            ].map(([title, desc]) => (
+              <li class="svc-feat">
+                <span class="svc-feat-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="svc-feat-title">{title}</p>
+                  <p class="svc-feat-body">{desc}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div class="svc-callout fade-up">
+            <p class="svc-callout-label">Case Study</p>
+            <p class="svc-callout-body">Complete buildout for ReLink Medical's new White Marsh warehouse — cabling, wireless access points, cameras, network rack, and cloud access control. All by one team.</p>
           </div>
         </div>
-        <div class="fade-up">
-          <ul class="flex flex-col">
-            {[
-              ['Video-verified alarms',            'When a sensor trips, live camera footage confirms what\'s happening — cutting false alarms and speeding real response'],
-              ['Remote monitoring & control',       'Arm, disarm, and check status from your mobile device via Alarm.com'],
-              ['Real-time notifications',           'The moment something trips, you know'],
-              ['24/7 incident response',            'Monitoring with full response — not just a call-back at 9 a.m.'],
-              ['Personal emergency response',       'Two-way voice and GPS — proven protecting Queen Anne\'s County health workers in the field'],
-              ['NICET fire alarm systems',          'Design, installation, and ongoing support — from certified technicians'],
-            ].map(([title, desc]) => (
-              <li class="py-5 flex items-start gap-4">
-                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
-                <div>
-                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
-                  <p class="font-body text-sm text-ink-muted">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ── Network ── -->
-  <section id="network" class="bg-canvas section-pad">
-    <div class="page-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-        <div class="fade-up">
-          <p class="eyebrow">04 — Network Infrastructure</p>
-          <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight mb-6">
-            The backbone behind every system.
-          </h2>
-          <p class="font-body text-ink-muted leading-relaxed mb-4">
-            Every camera, badge reader, and alarm panel runs on your network — so we build that too. One contractor for security and infrastructure means no finger-pointing between vendors.
-          </p>
-          <div class="bg-canvas px-6 py-5 mt-6">
-            <p class="font-body text-[11px] font-semibold tracking-[1.2px] uppercase text-ink-muted mb-3">Case Study</p>
-            <p class="font-body text-sm text-ink leading-relaxed">
-              Complete buildout for ReLink Medical's new White Marsh warehouse — cabling, wireless access points, cameras, network rack, and cloud access control. All by one team.
-            </p>
+        <div class="svc-left fade-up">
+          <p class="svc-eyebrow">04 — Network Infrastructure</p>
+          <h2 class="svc-heading">The backbone behind every system.</h2>
+          <p class="svc-lead">Every camera, badge reader, and alarm panel runs on your network — so we build that too. One contractor for security and infrastructure means no finger-pointing between vendors.</p>
+          <p class="svc-body">We're BICSI TECH and Corning Fiber certified, and Cisco trained — so the infrastructure we put in is the right spec from day one.</p>
+          <div class="svc-tags">
+            <span class="svc-tag">BICSI TECH</span>
+            <span class="svc-tag">Corning Fiber</span>
+            <span class="svc-tag">Cisco Trained</span>
           </div>
+          <a href="/contact" class="svc-inline-cta">
+            Plan your network infrastructure
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-        <div class="fade-up">
-          <ul class="flex flex-col">
-            {[
-              ['Structured cabling',          'BICSI TECH and Corning Fiber certified'],
-              ['Network racks & equipment',   'Full equipment room buildout and management'],
-              ['WiFi & wireless access',      'Coverage planning, WAP installation, and secure guest WiFi'],
-              ['Network infrastructure',      'Design, upgrade, and Cisco certified configuration'],
-            ].map(([title, desc]) => (
-              <li class="py-5 flex items-start gap-4">
-                <span class="mt-1 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0"></span>
-                <div>
-                  <p class="font-body font-semibold text-sm text-ink mb-0.5">{title}</p>
-                  <p class="font-body text-sm text-ink-muted">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ── Commercial & Rentals ── -->
-  <section id="rentals" class="bg-canvas section-pad">
+
+  <!-- ── 05 Commercial & Rentals ── -->
+  <section id="rentals" class="svc-section svc-rentals">
+    <div class="svc-num" aria-hidden="true">05</div>
     <div class="page-container">
-      <div class="fade-up mb-14">
-        <p class="eyebrow">05 — Commercial & Rentals</p>
-        <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight max-w-xl">
-          Built for the way your business actually works.
-        </h2>
+
+      <div class="svc-rentals-head fade-up">
+        <p class="svc-eyebrow">05 — Commercial &amp; Rentals</p>
+        <h2 class="svc-heading svc-heading--wide">Built for the way your business actually works.</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+      <div class="svc-use-grid fade-up">
         {[
-          { title: 'Office Space',          body: 'Protect your people, your equipment, and your data. Badge access, cameras, and alarms — plus network and WiFi upgrades while we\'re at it.' },
-          { title: 'Retail',                body: 'Cover merchandise and registers, deter theft, and add secure guest WiFi your customers will thank you for.' },
+          { title: 'Office Space',          body: "Protect your people, equipment, and data. Badge access, cameras, and alarms — plus network and WiFi upgrades while we're at it." },
+          { title: 'Retail',                body: 'Cover merchandise and registers, deter theft, and add secure guest WiFi your customers will appreciate.' },
           { title: 'Warehouse & Logistics', body: 'Watch deliveries and inventory, and cut liability exposure from personnel and equipment incidents.' },
-          { title: 'Multi-Tenant',          body: 'Modern intercom systems let tenants grant access to guests from their phone — and let you manage the whole property from your office.' },
+          { title: 'Multi-Tenant',          body: 'Modern intercom systems let tenants grant access to guests from their phone — manage the whole property from your office.' },
         ].map(s => (
-          <div class="card-base fade-up">
-            <h3 class="font-display font-semibold text-xl text-ink mb-3">{s.title}</h3>
-            <p class="font-body text-sm text-ink-muted leading-relaxed">{s.body}</p>
+          <div class="svc-use-card">
+            <h3 class="svc-use-title">{s.title}</h3>
+            <p class="svc-use-body">{s.body}</p>
           </div>
         ))}
+      </div>
 
-        <!-- Trailer card -->
-        <div class="card-base fade-up md:col-span-2 lg:col-span-2">
-          <h3 class="font-display font-semibold text-xl text-ink mb-3">Mobile Surveillance Trailers</h3>
-          <p class="font-body text-sm text-ink-muted leading-relaxed mb-5">
-            Rugged, solar powered, and self contained. Delivered to your location and deployed in 10 minutes — no cords or generators required.
-          </p>
-          <div class="grid grid-cols-2 gap-x-8 gap-y-2">
+      <div class="svc-trailer-wrap fade-up">
+        <div class="svc-trailer-left">
+          <div class="svc-trailer-badge">Solar Powered · Cellular · No Generator</div>
+          <h3 class="svc-trailer-heading">Mobile Surveillance Trailers</h3>
+          <p class="svc-trailer-body">Rugged, solar powered, and self contained. Delivered to your location and deployed in 10 minutes — no cords or generators required. Short and long term rentals available.</p>
+          <a href="/contact" class="svc-inline-cta" style="margin-top:24px">
+            Ask about trailer availability
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="svc-trailer-right">
+          <ul class="svc-trailer-feats">
             {[
               'Live streaming & recorded playback over cellular',
               'Panoramic, zoom, thermal, and radar cameras',
               'Blue strobe warning light to deter intruders',
               'Runs indefinitely on sunlight',
-              'Short and long term rentals',
               'Ideal for lay-down yards, construction sites, parking lots',
+              'Short and long term rentals',
             ].map(f => (
-              <p class="flex items-start gap-2 font-body text-sm text-ink-muted">
-                <span class="mt-1.5 w-1 h-1 rounded-full bg-blue-400 shrink-0"></span>
-                {f}
-              </p>
+              <li class="svc-trailer-feat">
+                <span class="svc-feat-dot" aria-hidden="true"></span>
+                <span>{f}</span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </div>
 
-      <!-- Temporary units -->
-      <div class="bg-canvas px-8 py-7 fade-up">
-        <h3 class="font-display font-semibold text-xl text-ink mb-3">Temporary Surveillance Units</h3>
-        <p class="font-body text-sm text-ink-muted leading-relaxed max-w-2xl">
-          Compact rental units with cellular connectivity, battery plus AC power, remote viewing and playback. Satisfies insurance requirements for continuous watch on sites with no or intermittent power.
-        </p>
+      <div class="svc-temp-callout fade-up">
+        <div class="svc-callout">
+          <p class="svc-callout-label">Temporary Surveillance Units</p>
+          <p class="svc-callout-body">Compact rental units with cellular connectivity, battery plus AC power, remote viewing and playback. Satisfies insurance requirements for continuous watch on sites with no or intermittent power.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ── Process ── -->
+  <section class="svc-process-section">
+    <div class="page-container">
+      <div class="svc-process-head fade-up">
+        <p class="eyebrow">How it works</p>
+        <h2 class="svc-process-h2">Simple from start to finish.</h2>
+      </div>
+      <div class="svc-process-grid">
+        {[
+          {
+            n: '01',
+            title: 'Free Site Assessment',
+            body: "We walk your property, listen to your concerns, and identify every vulnerability. No sales pitch — just a clear picture of what you're dealing with.",
+            icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>`,
+          },
+          {
+            n: '02',
+            title: 'Tailored Design',
+            body: "We build a solution specific to your space, budget, and risk profile — not a package off a shelf. You'll see exactly what you're getting before anything is ordered.",
+            icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+          },
+          {
+            n: '03',
+            title: 'Install & Ongoing Support',
+            body: "Our certified technicians handle every layer — no subcontractors. After install, we're your single point of contact for service, monitoring, and upgrades.",
+            icon: `<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/><path d="M12 6v6l4 2"/></svg>`,
+          },
+        ].map(step => (
+          <div class="svc-step fade-up">
+            <div class="svc-step-top">
+              <div class="svc-step-icon" set:html={step.icon}></div>
+              <span class="svc-step-num">{step.n}</span>
+            </div>
+            <h3 class="svc-step-title">{step.title}</h3>
+            <p class="svc-step-body">{step.body}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
+
   <!-- ── CTA ── -->
-  <section class="bg-canvas section-pad-sm">
-    <div class="page-container text-center fade-up">
-      <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight max-w-xl mx-auto mb-6">
-        Ready to talk through what your site needs?
-      </h2>
-      <p class="font-body text-ink-muted max-w-lg mx-auto mb-10">
-        We'll walk your property, listen to your concerns, and put together options that fit your budget. No pressure.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="/contact" class="btn-primary">Get a Free Assessment</a>
-        <a href="tel:4106457121" class="btn-ghost">Call 410-645-7121</a>
+  <section class="svc-cta-wrap">
+    <div class="page-container">
+      <div class="svc-cta-inner fade-up">
+        <div class="svc-cta-left">
+          <p class="eyebrow">Get started</p>
+          <h2 class="svc-cta-heading">Ready to talk through what your site needs?</h2>
+          <p class="svc-cta-body">We'll walk your property, listen to your concerns, and put together options that fit your budget. No obligation, no pressure.</p>
+        </div>
+        <div class="svc-cta-actions">
+          <a href="/contact" class="btn-primary btn-lg">Get a Free Assessment</a>
+          <a href="tel:4106457121" class="btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.91 19.79 19.79 0 01.01 1.27 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            Call 410-645-7121
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
+
+  <!-- ── Scripts ── -->
+  <script>
+    /* Active services nav link via IntersectionObserver */
+    const sections  = document.querySelectorAll<HTMLElement>('.svc-section');
+    const navLinks  = document.querySelectorAll<HTMLElement>('.svc-nav-link');
+    const observer  = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('is-active'));
+          const link = document.querySelector<HTMLElement>(`.svc-nav-link[data-target="${entry.target.id}"]`);
+          if (link) link.classList.add('is-active');
+        }
+      });
+    }, { rootMargin: '-35% 0px -65% 0px' });
+    sections.forEach(s => observer.observe(s));
+
+    /* Fade-up on scroll */
+    const fadeEls = document.querySelectorAll<HTMLElement>('.fade-up');
+    const fadeObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); fadeObs.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    fadeEls.forEach(el => fadeObs.observe(el));
+  </script>
+
+
+  <style is:global>
+
+    /* ─────────────────────────────────────────
+       HERO — premium centered layout
+    ───────────────────────────────────────── */
+    .svc-hero {
+      position: relative;
+      min-height: clamp(680px, 96vh, 960px);
+      background: #0b0b0b;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* centered text block */
+    .svc-hero-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: calc(64px + 40px) 32px 32px;
+    }
+
+    /* kicker badge */
+    .svc-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--color-blue-400);
+      border: 1px solid var(--color-hairline);
+      border-radius: 100px;
+      padding: 8px 16px;
+      margin-bottom: 30px;
+      animation: svc-rise .8s cubic-bezier(.2,.8,.2,1) both .12s;
+    }
+    .svc-kicker-dot {
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--color-blue-400);
+      flex-shrink: 0;
+    }
+
+    /* headline */
+    .svc-hero-h1 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: var(--color-ink);
+      font-size: clamp(40px, 5.4vw, 74px);
+      line-height: 1.03;
+      letter-spacing: -0.026em;
+      max-width: 16ch;
+      animation: svc-rise .9s cubic-bezier(.2,.8,.2,1) both .24s;
+    }
+
+    /* subhead */
+    .svc-hero-sub {
+      max-width: 580px;
+      margin: 26px auto 0;
+      font-family: var(--font-body);
+      font-size: clamp(14.5px, 1.55vw, 16.5px);
+      line-height: 1.6;
+      color: var(--color-ink-muted);
+      animation: svc-rise .9s cubic-bezier(.2,.8,.2,1) both .38s;
+    }
+    .svc-hero-sub b { color: var(--color-ink); font-weight: 500; }
+
+    /* CTAs */
+    .svc-hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 34px;
+      animation: svc-rise .9s cubic-bezier(.2,.8,.2,1) both .5s;
+    }
+
+    /* ── sliding work strip ── */
+    .svc-strip-wrap {
+      padding-bottom: 30px;
+      animation: svc-fade 1s ease both .7s;
+    }
+    .svc-strip-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .svc-strip-t {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+    }
+    .svc-strip-ln {
+      display: block;
+      width: 34px; height: 1px;
+      background: var(--color-hairline);
+    }
+    .svc-strip {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+    }
+    .svc-strip:hover .svc-track { animation-play-state: paused; }
+    .svc-track {
+      display: flex;
+      width: max-content;
+      will-change: transform;
+      animation: svc-slide 46s linear infinite;
+    }
+
+    /* work cards */
+    .svc-wcard {
+      flex: none;
+      width: clamp(248px, 24vw, 336px);
+      margin-right: 18px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-hairline);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .svc-wcard:hover { border-color: #363636; transform: translateY(-3px); }
+    .svc-wthumb {
+      position: relative;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+    }
+    .svc-wimg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .svc-wimg--contain {
+      object-fit: contain;
+      padding: 16px 20px;
+      background: var(--color-surface-1);
+    }
+    .svc-vfc {
+      position: absolute;
+      z-index: 2;
+      width: 12px; height: 12px;
+      border: 1.5px solid var(--color-ink-muted);
+      opacity: .5;
+    }
+    .svc-vfc-a { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+    .svc-vfc-b { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+    .svc-wfoot {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 15px;
+      border-top: 1px solid var(--color-hairline-soft);
+    }
+    .svc-wonline {
+      display: block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--color-success-500);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(34,197,94,.14);
+    }
+    .svc-wcap {
+      font-family: var(--font-body);
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--color-ink);
+      letter-spacing: .1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* keyframes */
+    @keyframes svc-rise {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @keyframes svc-fade {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes svc-slide {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (max-width: 640px) {
+      .svc-hero-h1 { font-size: clamp(34px, 9vw, 56px); }
+      .svc-hero-content { padding-top: calc(64px + 28px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .svc-kicker, .svc-hero-h1, .svc-hero-sub,
+      .svc-hero-actions, .svc-strip-wrap {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .svc-track { animation: none !important; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       SERVICES STICKY NAV
+    ───────────────────────────────────────── */
+    .svc-nav {
+      position: sticky;
+      top: 60px;
+      z-index: 20;
+      background: rgba(9, 9, 9, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-hairline);
+    }
+    .svc-nav-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .svc-nav-inner::-webkit-scrollbar { display: none; }
+    .svc-nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      color: var(--color-ink-muted);
+      text-decoration: none;
+      padding: 14px 20px;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+      flex-shrink: 0;
+    }
+    .svc-nav-link:hover { color: var(--color-ink); }
+    .svc-nav-link.is-active {
+      color: var(--color-blue-400);
+      border-bottom-color: var(--color-blue-400);
+    }
+    .svc-nav-link svg { opacity: 0.6; flex-shrink: 0; }
+    .svc-nav-link.is-active svg { opacity: 1; }
+    .svc-nav-sep {
+      width: 1px;
+      height: 14px;
+      background: var(--color-hairline);
+      flex-shrink: 0;
+    }
+    @media (max-width: 640px) {
+      .svc-nav-inner { padding: 0 16px; }
+      .svc-nav-link  { padding: 12px 14px; font-size: 11px; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       SERVICE SECTIONS — BASE
+    ───────────────────────────────────────── */
+    .svc-section {
+      position: relative;
+      padding: 96px 0;
+      overflow: hidden;
+      border-top: 1px solid var(--color-hairline);
+    }
+    /* Top accent line per service */
+    .svc-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      z-index: 1;
+    }
+    .svc-surv::before    { background: var(--color-blue-500); }
+    .svc-access::before  { background: var(--color-success-600); }
+    .svc-fire::before    { background: var(--color-error-600); }
+    .svc-network::before { background: var(--color-warning-600); }
+    .svc-rentals::before { background: var(--color-blue-600); }
+
+    /* Big watermark number */
+    .svc-num {
+      position: absolute;
+      right: -10px;
+      bottom: -20px;
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(120px, 18vw, 220px);
+      letter-spacing: -10px;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      color: var(--color-ink);
+      opacity: 0.025;
+    }
+
+    /* Two-column layout */
+    .svc-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    /* Flipped variant — right column first on desktop (visually) */
+    .svc-layout--flip { }
+    @media (min-width: 1024px) {
+      .svc-layout--flip > .svc-right { order: -1; }
+    }
+
+    /* Left column */
+    .svc-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 16px;
+    }
+    .svc-surv    .svc-eyebrow { color: var(--color-blue-400); }
+    .svc-access  .svc-eyebrow { color: var(--color-success-400); }
+    .svc-fire    .svc-eyebrow { color: var(--color-error-400); }
+    .svc-network .svc-eyebrow { color: var(--color-warning-400); }
+    .svc-rentals .svc-eyebrow { color: var(--color-blue-300); }
+
+    .svc-heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(26px, 3vw, 42px);
+      letter-spacing: -1px;
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .svc-heading--wide { max-width: 520px; }
+    .svc-lead {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-ink-muted);
+      line-height: 1.75;
+      margin-bottom: 12px;
+    }
+    .svc-body {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-ink-muted);
+      line-height: 1.7;
+      opacity: 0.8;
+      margin-bottom: 28px;
+    }
+
+    /* Cert tags */
+    .svc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+    .svc-tag {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    .svc-surv    .svc-tag { color: var(--color-blue-300);    background: transparent; box-shadow: inset 0 0 0 1px var(--color-blue-800); }
+    .svc-access  .svc-tag { color: var(--color-success-300); background: transparent; box-shadow: inset 0 0 0 1px var(--color-success-800); }
+    .svc-fire    .svc-tag { color: var(--color-error-300);   background: transparent; box-shadow: inset 0 0 0 1px var(--color-error-800); }
+    .svc-network .svc-tag { color: var(--color-warning-300); background: transparent; box-shadow: inset 0 0 0 1px var(--color-warning-800); }
+    .svc-rentals .svc-tag { color: var(--color-blue-200);    background: transparent; box-shadow: inset 0 0 0 1px var(--color-blue-700); }
+
+    /* Inline CTA link */
+    .svc-inline-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+    .svc-surv    .svc-inline-cta { color: var(--color-blue-400); }
+    .svc-access  .svc-inline-cta { color: var(--color-success-400); }
+    .svc-fire    .svc-inline-cta { color: var(--color-error-400); }
+    .svc-network .svc-inline-cta { color: var(--color-warning-400); }
+    .svc-rentals .svc-inline-cta { color: var(--color-blue-300); }
+    .svc-inline-cta:hover { gap: 11px; }
+
+    /* Right column — features */
+    .svc-feat-label {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 4px;
+    }
+    .svc-feat-list {
+      list-style: none;
+      padding: 0; margin: 0;
+    }
+    .svc-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-hairline-soft);
+    }
+    .svc-feat:last-child { border-bottom: none; }
+    .svc-feat-dot {
+      display: block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .svc-surv    .svc-feat-dot { background: var(--color-blue-400); }
+    .svc-access  .svc-feat-dot { background: var(--color-success-400); }
+    .svc-fire    .svc-feat-dot { background: var(--color-error-400); }
+    .svc-network .svc-feat-dot { background: var(--color-warning-400); }
+    .svc-rentals .svc-feat-dot { background: var(--color-blue-300); }
+    /* Trailer section also uses svc-feat-dot */
+    .svc-trailer-feats .svc-feat-dot { background: var(--color-blue-300); }
+
+    .svc-feat-title {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 13.5px;
+      color: var(--color-ink);
+      margin-bottom: 3px;
+    }
+    .svc-feat-body {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+    }
+
+    /* Callout panel (case study) */
+    .svc-callout {
+      margin-top: 24px;
+      padding: 20px 22px;
+      border-left: 2px solid var(--color-warning-700);
+      background: var(--color-surface-1);
+    }
+    .svc-callout-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--color-ink-muted);
+      margin-bottom: 8px;
+    }
+    .svc-network .svc-callout { border-left-color: var(--color-warning-700); }
+    .svc-callout-body {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 1023px) {
+      .svc-layout { grid-template-columns: 1fr; gap: 40px; }
+      .svc-section { padding: 72px 0; }
+    }
+    @media (max-width: 640px) {
+      .svc-section { padding: 56px 0; }
+      .svc-heading { font-size: clamp(24px, 6vw, 34px); }
+    }
+
+
+    /* ─────────────────────────────────────────
+       RENTALS SECTION SPECIFICS
+    ───────────────────────────────────────── */
+    .svc-rentals-head { margin-bottom: 48px; }
+
+    .svc-use-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--color-hairline);
+      margin-bottom: 48px;
+    }
+    .svc-use-card {
+      padding: 28px 24px;
+      border-right: 1px solid var(--color-hairline);
+      transition: background 0.2s ease;
+    }
+    .svc-use-card:last-child { border-right: none; }
+    .svc-use-card:hover { background: var(--color-surface-1); }
+    .svc-use-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--color-ink);
+      margin-bottom: 10px;
+    }
+    .svc-use-body {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+    }
+
+    .svc-trailer-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      border: 1px solid var(--color-hairline);
+      padding: 40px;
+      margin-bottom: 24px;
+      background: var(--color-surface-1);
+    }
+    .svc-trailer-badge {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--color-blue-300);
+      margin-bottom: 14px;
+    }
+    .svc-trailer-heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(22px, 2.5vw, 30px);
+      color: var(--color-ink);
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+    }
+    .svc-trailer-body {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--color-ink-muted);
+      line-height: 1.7;
+    }
+    .svc-trailer-feats {
+      list-style: none;
+      padding: 0; margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .svc-trailer-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.55;
+    }
+    .svc-trailer-feat .svc-feat-dot { margin-top: 6px; }
+
+    .svc-temp-callout .svc-callout { border-left-color: var(--color-blue-700); margin-top: 0; }
+
+    @media (max-width: 900px) {
+      .svc-use-grid { grid-template-columns: repeat(2, 1fr); }
+      .svc-use-card:nth-child(2) { border-right: none; }
+      .svc-use-card:nth-child(1),
+      .svc-use-card:nth-child(2) { border-bottom: 1px solid var(--color-hairline); }
+    }
+    @media (max-width: 768px) {
+      .svc-trailer-wrap { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
+    }
+    @media (max-width: 480px) {
+      .svc-use-grid { grid-template-columns: 1fr; }
+      .svc-use-card { border-right: none; border-bottom: 1px solid var(--color-hairline); }
+      .svc-use-card:last-child { border-bottom: none; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       PROCESS SECTION
+    ───────────────────────────────────────── */
+    .svc-process-section {
+      padding: 96px 0;
+      border-top: 1px solid var(--color-hairline);
+    }
+    .svc-process-head { margin-bottom: 56px; }
+    .svc-process-h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing: -1px;
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin-top: 8px;
+    }
+    .svc-process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid var(--color-hairline);
+    }
+    .svc-step {
+      padding: 40px 36px;
+      border-right: 1px solid var(--color-hairline);
+      position: relative;
+    }
+    .svc-step:last-child { border-right: none; }
+    .svc-step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .svc-step-icon {
+      width: 48px; height: 48px;
+      border-radius: 10px;
+      background: var(--color-surface-1);
+      box-shadow: inset 0 0 0 1px var(--color-hairline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-blue-400);
+    }
+    .svc-step-num {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--color-ink-muted);
+      opacity: 0.5;
+    }
+    .svc-step-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 18px;
+      color: var(--color-ink);
+      margin-bottom: 12px;
+    }
+    .svc-step-body {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .svc-process-grid { grid-template-columns: 1fr; }
+      .svc-step { border-right: none; border-bottom: 1px solid var(--color-hairline); }
+      .svc-step:last-child { border-bottom: none; }
+      .svc-process-section { padding: 72px 0; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       CTA SECTION
+    ───────────────────────────────────────── */
+    .svc-cta-wrap {
+      padding: 96px 0;
+      border-top: 1px solid var(--color-hairline);
+    }
+    .svc-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+    }
+    .svc-cta-left { max-width: 520px; }
+    .svc-cta-heading {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(26px, 3vw, 40px);
+      letter-spacing: -1px;
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin-top: 8px;
+      margin-bottom: 14px;
+    }
+    .svc-cta-body {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-ink-muted);
+      line-height: 1.7;
+    }
+    .svc-cta-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+    @media (max-width: 900px) {
+      .svc-cta-inner { flex-direction: column; align-items: flex-start; }
+      .svc-cta-actions { flex-direction: row; flex-wrap: wrap; }
+      .svc-cta-wrap { padding: 72px 0; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       FADE-UP ANIMATION
+    ───────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(var(--scroll-slide-y));
+      transition: opacity var(--duration-scroll) ease,
+                  transform var(--duration-scroll) ease;
+    }
+    .fade-up.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+    }
+
+  </style>
 
 </BaseLayout>
