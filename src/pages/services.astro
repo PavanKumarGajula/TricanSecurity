@@ -160,46 +160,106 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="surveillance" class="svc-section svc-surv">
     <div class="svc-num" aria-hidden="true">01</div>
     <div class="page-container">
-      <div class="svc-layout">
 
-        <div class="svc-left fade-up">
-          <p class="svc-eyebrow">01 — Surveillance</p>
-          <h2 class="svc-heading">See everything that matters. From anywhere.</h2>
-          <p class="svc-lead">Video surveillance is the most effective tool there is for reducing property loss and damage — but only if the cameras are right for the job. We partner with top camera manufacturers and design every solution from scratch.</p>
-          <p class="svc-body">Thermal cameras and radar/sound detection for perimeter protection, discreet domes for retail, network or analog — whatever your situation calls for. It starts with a full assessment of your site.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">AXIS Certified</span>
-            <span class="svc-tag">Milestone MCBP</span>
-            <span class="svc-tag">Thermal &amp; Radar</span>
+      <div class="bn-head fade-up">
+        <div class="bn-head-left">
+          <span class="bn-pill bn-pill--surv">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="13" height="9" rx="2"/><path d="M15 9l7-3v9l-7-3"/></svg>
+            Surveillance
+          </span>
+          <h2 class="bn-h2">See everything that matters. From anywhere.</h2>
+        </div>
+        <p class="bn-sub">We design every camera system from scratch, then layer on analytics that turn footage into answers — all viewable from your phone or any computer.</p>
+      </div>
+
+      <div class="bn-grid fade-up">
+
+        <!-- wide: camera systems -->
+        <div class="bn-card bn-w2">
+          <div class="bn-visual">
+            <img src="/images/services/cameras.png" alt="Camera systems" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
           </div>
-          <a href="/contact" class="svc-inline-cta">
-            Request a surveillance assessment
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+          <div class="bn-body">
+            <h3 class="bn-title">Camera systems</h3>
+            <p class="bn-desc">Network, analog, thermal, radar, and discreet domes — chosen for your space, not off a shelf.</p>
+          </div>
         </div>
 
-        <div class="svc-right fade-up">
-          <p class="svc-feat-label">Video Analytics</p>
-          <ul class="svc-feat-list">
-            {[
-              ['Auto tracking',             'Cameras that follow movement across parking lots and open spaces'],
-              ['Heat mapping',              'See traffic patterns based on visitor density and duration'],
-              ['People counting',           'Know exactly how many people enter and exit any defined area'],
-              ['License plate recognition', 'Capture searchable plate data — use plates to open gates and garages'],
-              ['Audio analytics',           'Detect aggression, glass break, and other sound events'],
-            ].map(([title, desc]) => (
-              <li class="svc-feat">
-                <span class="svc-feat-dot" aria-hidden="true"></span>
-                <div>
-                  <p class="svc-feat-title">{title}</p>
-                  <p class="svc-feat-body">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <!-- narrow: auto tracking -->
+        <div class="bn-card">
+          <div class="bn-visual">
+            <img src="/images/services/Auto_tracking.png" alt="Auto tracking" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
+          </div>
+          <div class="bn-body">
+            <h3 class="bn-title">Auto tracking</h3>
+            <p class="bn-desc">Cameras that follow movement across open spaces and parking lots.</p>
+          </div>
+        </div>
+
+        <!-- narrow: heat mapping -->
+        <div class="bn-card">
+          <div class="bn-visual">
+            <img src="/images/services/Heat_mapping.png" alt="Heat mapping" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
+          </div>
+          <div class="bn-body">
+            <h3 class="bn-title">Heat mapping</h3>
+            <p class="bn-desc">Traffic patterns by visitor density and duration.</p>
+          </div>
+        </div>
+
+        <!-- narrow: people counting -->
+        <div class="bn-card">
+          <div class="bn-visual">
+            <img src="/images/services/people_count.png" alt="People counting" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
+          </div>
+          <div class="bn-body">
+            <h3 class="bn-title">People counting</h3>
+            <p class="bn-desc">Know exactly how many enter and exit any defined area.</p>
+          </div>
+        </div>
+
+        <!-- narrow: license plate -->
+        <div class="bn-card">
+          <div class="bn-visual">
+            <img src="/images/services/Licenseplate.png" alt="License plate recognition" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
+          </div>
+          <div class="bn-body">
+            <h3 class="bn-title">License plate recognition</h3>
+            <p class="bn-desc">Searchable plate data — use plates to open gates and garages.</p>
+          </div>
+        </div>
+
+        <!-- wide: audio analytics -->
+        <div class="bn-card bn-w2">
+          <div class="bn-visual">
+            <img src="/images/services/audio.png" alt="Audio analytics" class="bn-img" />
+            <span class="bn-vfc bn-vfc-a"></span><span class="bn-vfc bn-vfc-b"></span>
+          </div>
+          <div class="bn-body">
+            <h3 class="bn-title">Audio analytics</h3>
+            <p class="bn-desc">Detect aggression, glass break, and other sound events the cameras alone would miss.</p>
+          </div>
         </div>
 
       </div>
+
+      <div class="bn-cta fade-up">
+        <div class="svc-tags">
+          <span class="svc-tag">AXIS Certified</span>
+          <span class="svc-tag">Milestone MCBP</span>
+          <span class="svc-tag">Thermal &amp; Radar</span>
+        </div>
+        <a href="/contact" class="svc-inline-cta">
+          Request a surveillance assessment
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
@@ -208,44 +268,96 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="access-control" class="svc-section svc-access">
     <div class="svc-num" aria-hidden="true">02</div>
     <div class="page-container">
-      <div class="svc-layout svc-layout--flip">
+      <div class="ac-split fade-up">
 
-        <div class="svc-right fade-up">
-          <p class="svc-feat-label">What We Install</p>
-          <ul class="svc-feat-list">
-            {[
-              ['Badge access & smart cards',  'Employee badges with role-based permissions, time-of-day rules, and full audit trail; deactivate a lost badge in seconds'],
-              ['Biometrics & two-factor auth', 'High security entry for sensitive areas'],
-              ['Touch-free entry',            'Low energy door operators, wave-to-open switches, and electric strikes'],
-              ['Intercom systems',            'See and speak with visitors before unlocking the door, from anywhere'],
-              ['Multi-tenant access',         'Outdoor rated intercoms — tenants buzz in guests from their own phone'],
-              ['Vehicle & perimeter access',  'Automatic gates tied to credentials or license plates, with radar and sound detection'],
-            ].map(([title, desc]) => (
-              <li class="svc-feat">
-                <span class="svc-feat-dot" aria-hidden="true"></span>
-                <div>
-                  <p class="svc-feat-title">{title}</p>
-                  <p class="svc-feat-body">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <!-- LEFT: heading + preview -->
+        <div class="ac-left">
+          <span class="ac-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4"/></svg>
+            Access Control &amp; Badge Access
+          </span>
+          <h2 class="ac-h2">The right people in. Everyone else out.</h2>
+          <p class="ac-lead">Control exactly who comes in, through which doors, and at which times — with a log of every attempt for review and audit. Hover a control to see it in place.</p>
+          <p class="ac-fips">For government facilities, we're experienced with <b>FIPS 201</b> and <b>PIV</b> card access control requirements.</p>
 
-        <div class="svc-left fade-up">
-          <p class="svc-eyebrow">02 — Access Control</p>
-          <h2 class="svc-heading">The right people in. Everyone else out.</h2>
-          <p class="svc-lead">Control exactly who can enter your property, through which doors, at which times — and keep a log of every attempt for review and audit.</p>
-          <p class="svc-body">For government facilities, we're experienced with FIPS 201 and PIV card access control requirements — the compliance standard for federal sites.</p>
-          <div class="svc-tags">
+          <div class="ac-preview" id="ac-preview">
+            <div class="ac-slide ac-slide--active" data-i="0">
+              <img src="/images/wwd-access.png" alt="Badge access" class="ac-slide-img" />
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2.2"/><path d="M5.6 16.2c.5-1.5 1.6-2.2 2.9-2.2s2.4.7 2.9 2.2"/><path d="M15 9h4M15 12h4M15 15h2"/></svg>
+              </div>
+            </div>
+            <div class="ac-slide" data-i="1">
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a7 7 0 0 0-7 7v3M19 11a7 7 0 0 0-3-5.7M8 20c-.6-1.4-1-3-1-5a5 5 0 0 1 10 0c0 .7 0 1.4-.1 2M12 11v4M15.5 19.5c.3-1 .5-2 .5-3"/></svg>
+              </div>
+            </div>
+            <div class="ac-slide" data-i="2">
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11V6a1.5 1.5 0 0 1 3 0v4M12 10V5a1.5 1.5 0 0 1 3 0v5M15 10.5V7a1.5 1.5 0 0 1 3 0v6a6 6 0 0 1-6 6h-1.5a5 5 0 0 1-3.6-1.6L4 13.5a1.6 1.6 0 0 1 2.4-2.1L9 13"/></svg>
+              </div>
+            </div>
+            <div class="ac-slide" data-i="3">
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="2"/><circle cx="12" cy="8" r="2"/><path d="M9 13h6M9 16h6"/></svg>
+              </div>
+            </div>
+            <div class="ac-slide" data-i="4">
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V6l7-3 7 3v15"/><path d="M4 21h16"/><path d="M8 9h.01M11 9h.01M8 13h.01M11 13h.01M8 17h3"/></svg>
+              </div>
+            </div>
+            <div class="ac-slide" data-i="5">
+              <img src="/images/badge-hero.png" alt="Vehicle & perimeter access" class="ac-slide-img" />
+              <div class="ac-fallback">
+                <svg class="ac-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9h11v7H2z"/><path d="M13 12h4l3 2v2h-7"/><circle cx="6.5" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/><path d="M20 4v6M20 4h-3"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="svc-tags" style="margin-top:28px">
             <span class="svc-tag">FIPS 201</span>
             <span class="svc-tag">PIV Experienced</span>
             <span class="svc-tag">ASSA ABLOY</span>
           </div>
-          <a href="/contact" class="svc-inline-cta">
+          <a href="/contact" class="svc-inline-cta" style="margin-top:20px;display:inline-flex">
             Discuss your access control needs
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+        </div>
+
+        <!-- RIGHT: hover list -->
+        <div class="ac-list" id="ac-list">
+          <div class="ac-item ac-item--active" data-i="0">
+            <span class="ac-idx">01</span>
+            <div class="ac-txt"><h4>Badge access &amp; smart cards</h4><p>Role-based permissions, time-of-day rules, and a full audit trail.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
+          <div class="ac-item" data-i="1">
+            <span class="ac-idx">02</span>
+            <div class="ac-txt"><h4>Biometrics &amp; two-factor</h4><p>High-security entry for your most sensitive areas.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
+          <div class="ac-item" data-i="2">
+            <span class="ac-idx">03</span>
+            <div class="ac-txt"><h4>Touch-free entry</h4><p>Low-energy operators, wave-to-open switches, and electric strikes.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
+          <div class="ac-item" data-i="3">
+            <span class="ac-idx">04</span>
+            <div class="ac-txt"><h4>Intercom systems</h4><p>See and speak with visitors before unlocking the door.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
+          <div class="ac-item" data-i="4">
+            <span class="ac-idx">05</span>
+            <div class="ac-txt"><h4>Multi-tenant access</h4><p>Tenants buzz in guests from their own phones — Android or iPhone.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
+          <div class="ac-item" data-i="5">
+            <span class="ac-idx">06</span>
+            <div class="ac-txt"><h4>Vehicle &amp; perimeter access</h4><p>Gates tied to credentials or plates, with radar and sound detection.</p></div>
+            <span class="ac-arrow">→</span>
+          </div>
         </div>
 
       </div>
@@ -257,95 +369,173 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section id="alarms" class="svc-section svc-fire">
     <div class="svc-num" aria-hidden="true">03</div>
     <div class="page-container">
-      <div class="svc-layout">
 
-        <div class="svc-left fade-up">
-          <p class="svc-eyebrow">03 — Alarms, Monitoring &amp; Fire</p>
-          <h2 class="svc-heading">Protection that never clocks out.</h2>
-          <p class="svc-lead">Intrusion alarm systems watch your space around the clock. We offer full-time monitoring with 24/7 incident response, so something happening at 3 a.m. doesn't wait until 9 a.m. to get handled.</p>
-          <p class="svc-body">Fire alarm systems are designed, installed, and supported by NICET-certified technicians, including a Certified Fire Alarm Technician (CFAT) Level II. One team for security and fire — one point of accountability.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">NICET Certified</span>
-            <span class="svc-tag">CFAT Level II</span>
-            <span class="svc-tag">Alarm.com</span>
-          </div>
-          <a href="/contact" class="svc-inline-cta">
-            Get monitoring coverage
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
+      <div class="al-head fade-up">
+        <div class="al-head-left">
+          <span class="al-pill">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+            Alarms, Monitoring &amp; Fire
+          </span>
+          <h2 class="al-h2">Protection that never clocks out.</h2>
         </div>
-
-        <div class="svc-right fade-up">
-          <p class="svc-feat-label">Services Included</p>
-          <ul class="svc-feat-list">
-            {[
-              ['Video-verified alarms',      "When a sensor trips, live camera footage confirms what's happening — cutting false alarms and speeding real response"],
-              ['Remote monitoring & control', 'Arm, disarm, and check status from your mobile device via Alarm.com'],
-              ['Real-time notifications',    'The moment something trips, you know'],
-              ['24/7 incident response',     'Monitoring with full response — not just a call-back at 9 a.m.'],
-              ['Personal emergency response',"Two-way voice and GPS — proven protecting Queen Anne's County health workers in the field"],
-              ['NICET fire alarm systems',   'Design, installation, and ongoing support from certified technicians'],
-            ].map(([title, desc]) => (
-              <li class="svc-feat">
-                <span class="svc-feat-dot" aria-hidden="true"></span>
-                <div>
-                  <p class="svc-feat-title">{title}</p>
-                  <p class="svc-feat-body">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
+        <p class="al-sub">Intrusion, fire, and emergency signals all route to one place — full-time monitoring with 24/7 incident response.</p>
       </div>
+
+      <div class="al-diagram fade-up">
+        <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Signals routing to 24/7 monitoring">
+          <!-- traces background -->
+          <g>
+            <path class="al-trace-bg" d="M210 80 H300 V214 H372"></path>
+            <path class="al-trace-flow al-d1" d="M210 80 H300 V214 H372"></path>
+            <path class="al-trace-bg" d="M185 170 H295 V230 H372"></path>
+            <path class="al-trace-flow al-d2" d="M185 170 H295 V230 H372"></path>
+            <path class="al-trace-bg" d="M175 300 H300 V252 H372"></path>
+            <path class="al-trace-flow al-d3" d="M175 300 H300 V252 H372"></path>
+            <path class="al-trace-bg" d="M210 395 H310 V268 H372"></path>
+            <path class="al-trace-flow al-d4" d="M210 395 H310 V268 H372"></path>
+            <path class="al-trace-bg" d="M690 110 H600 V216 H528"></path>
+            <path class="al-trace-flow al-d5" d="M690 110 H600 V216 H528"></path>
+            <path class="al-trace-bg" d="M700 240 H600 V240 H528"></path>
+            <path class="al-trace-flow al-d6" d="M700 240 H600 V240 H528"></path>
+            <path class="al-trace-bg" d="M690 375 H600 V266 H528"></path>
+            <path class="al-trace-flow al-d7" d="M690 375 H600 V266 H528"></path>
+          </g>
+          <!-- chip -->
+          <rect class="al-chip-ring" x="372" y="186" width="156" height="108" rx="22" fill="none" stroke="#0099ff" stroke-width="1"></rect>
+          <rect x="380" y="190" width="140" height="100" rx="20" fill="#1c1c1c" stroke="#2c2c2c" stroke-width="2"></rect>
+          <!-- pins -->
+          <g fill="#4a4a4a">
+            <rect x="372" y="208" width="9" height="9" rx="2"></rect>
+            <rect x="372" y="224" width="9" height="9" rx="2"></rect>
+            <rect x="372" y="247" width="9" height="9" rx="2"></rect>
+            <rect x="372" y="263" width="9" height="9" rx="2"></rect>
+            <rect x="519" y="210" width="9" height="9" rx="2"></rect>
+            <rect x="519" y="236" width="9" height="9" rx="2"></rect>
+            <rect x="519" y="261" width="9" height="9" rx="2"></rect>
+          </g>
+          <!-- online dot -->
+          <circle cx="416" cy="213" r="4" fill="#22c55e"></circle>
+          <text x="426" y="216" class="al-chip-cap" style="font-size:9px;letter-spacing:1.5px;fill:#22c55e;">ONLINE</text>
+          <text x="450" y="252" class="al-chip-num" text-anchor="middle">24/7</text>
+          <text x="450" y="274" class="al-chip-cap" text-anchor="middle">MONITORING</text>
+          <!-- left nodes -->
+          <circle class="al-node" cx="210" cy="80" r="5"></circle>
+          <text x="198" y="76" class="al-lbl-name" text-anchor="end">Intrusion alarm</text>
+          <text x="198" y="92" class="al-lbl-sub" text-anchor="end">Armed 24/7</text>
+          <circle class="al-node" cx="185" cy="170" r="5"></circle>
+          <text x="173" y="166" class="al-lbl-name" text-anchor="end">Burglar alarm</text>
+          <text x="173" y="182" class="al-lbl-sub" text-anchor="end">Monitored</text>
+          <circle class="al-node" cx="175" cy="300" r="5"></circle>
+          <text x="163" y="296" class="al-lbl-name" text-anchor="end">Fire alarm</text>
+          <text x="163" y="312" class="al-lbl-sub" text-anchor="end">NICET · CFAT II</text>
+          <circle class="al-node" cx="210" cy="395" r="5"></circle>
+          <text x="198" y="391" class="al-lbl-name" text-anchor="end">Personal emergency</text>
+          <text x="198" y="407" class="al-lbl-sub" text-anchor="end">Response · PERS</text>
+          <!-- right nodes -->
+          <circle class="al-node" cx="690" cy="110" r="5"></circle>
+          <text x="702" y="106" class="al-lbl-name" text-anchor="start">Video-verified</text>
+          <text x="702" y="122" class="al-lbl-sub" text-anchor="start">Remote video</text>
+          <circle class="al-node" cx="700" cy="240" r="5"></circle>
+          <text x="712" y="236" class="al-lbl-name" text-anchor="start">Mobile control</text>
+          <text x="712" y="252" class="al-lbl-sub" text-anchor="start">Alarm.com</text>
+          <circle class="al-node" cx="690" cy="375" r="5"></circle>
+          <text x="702" y="371" class="al-lbl-name" text-anchor="start">Real-time</text>
+          <text x="702" y="387" class="al-lbl-sub" text-anchor="start">Notifications</text>
+        </svg>
+      </div>
+
+      <div class="al-note fade-up">
+        <div class="svc-tags">
+          <span class="svc-tag">NICET Certified</span>
+          <span class="svc-tag">CFAT Level II</span>
+          <span class="svc-tag">Alarm.com</span>
+        </div>
+        <p class="al-note-p">Powered by the <b>Alarm.com</b> platform. Fire alarm systems designed and supported by NICET-certified technicians, including a Certified Fire Alarm Technician (CFAT) Level&nbsp;II. Personal emergency response proven protecting Queen Anne's County health workers.</p>
+        <a href="/contact" class="svc-inline-cta">
+          Get monitoring coverage
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
     </div>
   </section>
 
 
   <!-- ── 04 Network ── -->
-  <section id="network" class="svc-section svc-network">
-    <div class="svc-num" aria-hidden="true">04</div>
+  <section id="network" class="svc-section">
     <div class="page-container">
-      <div class="svc-layout svc-layout--flip">
 
-        <div class="svc-right fade-up">
-          <p class="svc-feat-label">What We Build</p>
-          <ul class="svc-feat-list">
-            {[
-              ['Structured cabling',        'BICSI TECH and Corning Fiber certified'],
-              ['Network racks & equipment', 'Full equipment room buildout and management'],
-              ['WiFi & wireless access',    'Coverage planning, WAP installation, and secure guest WiFi'],
-              ['Network infrastructure',    'Design, upgrade, and Cisco certified configuration'],
-            ].map(([title, desc]) => (
-              <li class="svc-feat">
-                <span class="svc-feat-dot" aria-hidden="true"></span>
-                <div>
-                  <p class="svc-feat-title">{title}</p>
-                  <p class="svc-feat-body">{desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+      <div class="nw-head fade-up">
+        <div class="nw-head-left">
+          <p class="nw-pill">04 — Network Infrastructure</p>
+          <h2 class="nw-h2">The backbone behind every system.</h2>
+        </div>
+        <p class="nw-subhead">Every camera, badge reader, and alarm panel runs on your network — so we build that too. One contractor for security and infrastructure means no finger-pointing between vendors.</p>
+      </div>
 
-          <div class="svc-callout fade-up">
-            <p class="svc-callout-label">Case Study</p>
-            <p class="svc-callout-body">Complete buildout for ReLink Medical's new White Marsh warehouse — cabling, wireless access points, cameras, network rack, and cloud access control. All by one team.</p>
+      <div class="nw-grid fade-up">
+
+        <!-- tile A: 2×2 hero — structured cabling -->
+        <div class="nw-tile nw-tile--a">
+          <div class="nw-watermark" aria-hidden="true">
+            <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMaxYMid meet">
+              <circle cx="160" cy="80"  r="16" stroke="#a78bfa" stroke-width="1.5"/>
+              <circle cx="60"  cy="200" r="12" stroke="#a78bfa" stroke-width="1.5"/>
+              <circle cx="260" cy="200" r="12" stroke="#a78bfa" stroke-width="1.5"/>
+              <circle cx="100" cy="320" r="10" stroke="#a78bfa" stroke-width="1.5"/>
+              <circle cx="220" cy="320" r="10" stroke="#a78bfa" stroke-width="1.5"/>
+              <circle cx="160" cy="340" r="8"  stroke="#a78bfa" stroke-width="1.5"/>
+              <line x1="160" y1="96"  x2="60"  y2="188" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="160" y1="96"  x2="260" y2="188" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="60"  y1="212" x2="100" y2="310" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="60"  y1="212" x2="160" y2="332" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="260" y1="212" x2="220" y2="310" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+              <line x1="260" y1="212" x2="160" y2="332" stroke="#a78bfa" stroke-width="1" stroke-dasharray="4 4"/>
+            </svg>
+          </div>
+          <div class="nw-tile-body">
+            <div class="nw-chips">
+              <span class="nw-chip">BICSI TECH</span>
+              <span class="nw-chip">Corning Fiber</span>
+              <span class="nw-chip">Cisco Trained</span>
+            </div>
+            <h3 class="nw-tile-h3">Structured Cabling</h3>
+            <p class="nw-tile-p">Certified-grade cable infrastructure designed to last — no rework, no guesswork. The right spec from day one.</p>
+            <a href="/contact" class="nw-cta">
+              Plan your infrastructure
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
           </div>
         </div>
 
-        <div class="svc-left fade-up">
-          <p class="svc-eyebrow">04 — Network Infrastructure</p>
-          <h2 class="svc-heading">The backbone behind every system.</h2>
-          <p class="svc-lead">Every camera, badge reader, and alarm panel runs on your network — so we build that too. One contractor for security and infrastructure means no finger-pointing between vendors.</p>
-          <p class="svc-body">We're BICSI TECH and Corning Fiber certified, and Cisco trained — so the infrastructure we put in is the right spec from day one.</p>
-          <div class="svc-tags">
-            <span class="svc-tag">BICSI TECH</span>
-            <span class="svc-tag">Corning Fiber</span>
-            <span class="svc-tag">Cisco Trained</span>
+        <!-- tile B: 2-col wide — WiFi -->
+        <div class="nw-tile nw-tile--b">
+          <h3 class="nw-tile-h3">Wireless Access &amp; WiFi</h3>
+          <p class="nw-tile-p">Coverage planning, WAP installation, and secure guest WiFi — designed around your floorplan, not bolted on after the fact.</p>
+        </div>
+
+        <!-- tile C: 1-col — racks -->
+        <div class="nw-tile nw-tile--c">
+          <h3 class="nw-tile-h3">Racks &amp; Equipment Rooms</h3>
+          <p class="nw-tile-p">Full equipment room buildout and long-term management.</p>
+        </div>
+
+        <!-- tile D: 1-col — upgrades -->
+        <div class="nw-tile nw-tile--d">
+          <h3 class="nw-tile-h3">Network Design &amp; Upgrades</h3>
+          <p class="nw-tile-p">Infrastructure design and Cisco-certified configuration upgrades.</p>
+        </div>
+
+        <!-- tile E: full-width — ReLink case study -->
+        <div class="nw-tile nw-tile--e">
+          <div class="nw-case-body">
+            <p class="nw-case-label">Case Study</p>
+            <h3 class="nw-case-h3">ReLink Medical — White Marsh Warehouse</h3>
+            <p class="nw-case-p">Complete buildout for a new warehouse: cabling, wireless access points, cameras, network rack, and cloud access control. All by one team. No finger-pointing between vendors.</p>
           </div>
-          <a href="/contact" class="svc-inline-cta">
-            Plan your network infrastructure
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <a href="/contact" class="nw-case-link">
+            Talk to our team
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
         </div>
 
@@ -503,6 +693,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); fadeObs.unobserve(e.target); } });
     }, { threshold: 0.1 });
     fadeEls.forEach(el => fadeObs.observe(el));
+
+    /* Access Control hover preview */
+    (function () {
+      const items  = Array.from(document.querySelectorAll<HTMLElement>('#ac-list .ac-item'));
+      const slides = Array.from(document.querySelectorAll<HTMLElement>('#ac-preview .ac-slide'));
+      function setActive(i: number) {
+        items.forEach((el, n)  => el.classList.toggle('ac-item--active',  n === i));
+        slides.forEach((el, n) => el.classList.toggle('ac-slide--active', n === i));
+      }
+      items.forEach((el, i) => {
+        el.addEventListener('mouseenter', () => setActive(i));
+        el.addEventListener('click',      () => setActive(i));
+      });
+    })();
   </script>
 
 
@@ -724,6 +928,623 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
     /* ─────────────────────────────────────────
+       BENTO GRID (surveillance section)
+    ───────────────────────────────────────── */
+    .bn-head {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: clamp(44px, 5vw, 60px);
+    }
+    .bn-head-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .bn-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-hairline);
+      border-radius: 100px;
+      padding: 8px 15px;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .bn-pill--surv { color: var(--color-blue-400); }
+    .bn-h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(30px, 4.4vw, 56px);
+      color: var(--color-ink);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+    }
+    .bn-sub {
+      flex: 1;
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: var(--color-ink-muted);
+      line-height: 1.7;
+      max-width: 44ch;
+      padding-bottom: 6px;
+    }
+    @media (max-width: 720px) {
+      .bn-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .bn-sub { max-width: 100%; padding-bottom: 0; }
+    }
+
+    /* grid */
+    .bn-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .bn-card {
+      grid-column: span 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-hairline);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    .bn-card:hover { border-color: #363636; transform: translateY(-3px); }
+    .bn-w2 { grid-column: span 2; }
+
+    /* visual zone */
+    .bn-visual {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #101012;
+    }
+    .bn-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .bn-vfc {
+      position: absolute;
+      z-index: 2;
+      width: 13px; height: 13px;
+      border: 1.5px solid var(--color-ink-muted);
+      opacity: .38;
+    }
+    .bn-vfc-a { top: 14px; left: 14px; border-right: none; border-bottom: none; }
+    .bn-vfc-b { bottom: 14px; right: 14px; border-left: none; border-top: none; }
+
+    /* body */
+    .bn-body { padding: 22px 24px 26px; min-height: 104px; }
+    .bn-title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--color-ink);
+      letter-spacing: -0.15px;
+      margin-bottom: 8px;
+    }
+    .bn-desc {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+    }
+
+    /* cert tags + cta row below bento */
+    .bn-cta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    /* responsive */
+    @media (max-width: 880px) {
+      .bn-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      .bn-grid { grid-template-columns: 1fr; }
+      .bn-card, .bn-w2 { grid-column: span 1; }
+      .bn-visual { height: 180px; }
+      .bn-body { min-height: 0; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       ACCESS CONTROL — hover preview layout
+    ───────────────────────────────────────── */
+    .ac-split {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(36px, 5vw, 68px);
+      align-items: start;
+    }
+
+    /* pill */
+    .ac-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-hairline);
+      border-radius: 100px;
+      padding: 8px 15px;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-success-400);
+      margin-bottom: 22px;
+    }
+
+    /* heading */
+    .ac-h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(28px, 3.6vw, 46px);
+      color: var(--color-ink);
+      line-height: 1.08;
+      letter-spacing: -0.025em;
+      margin-bottom: 18px;
+    }
+    .ac-lead {
+      font-size: 15.5px;
+      color: var(--color-ink-muted);
+      max-width: 46ch;
+      line-height: 1.65;
+    }
+    .ac-fips {
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      margin-top: 14px;
+      line-height: 1.6;
+    }
+    .ac-fips b { color: var(--color-ink); font-weight: 500; }
+
+    /* preview image box */
+    .ac-preview {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      margin-top: 28px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--color-hairline);
+      background: #101012;
+      box-shadow: var(--shadow-card);
+    }
+    .ac-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+    .ac-slide--active { opacity: 1; }
+    .ac-slide-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 2;
+    }
+    .ac-fallback {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ac-glyph { width: 46px; height: 46px; color: #3b3b3b; }
+
+    /* hover list */
+    .ac-list { display: flex; flex-direction: column; }
+    .ac-item {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px 18px 20px 20px;
+      border-bottom: 1px solid var(--color-hairline-soft);
+      cursor: pointer;
+      transition: background .2s ease;
+      border-radius: 10px;
+    }
+    .ac-item:first-child { border-top: 1px solid var(--color-hairline-soft); }
+    .ac-item::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 2px; height: 0;
+      background: var(--color-success-400);
+      transition: height .25s ease;
+      border-radius: 2px;
+    }
+    .ac-idx {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: var(--color-ink-muted);
+      padding-top: 3px;
+      transition: color .2s ease;
+      flex-shrink: 0;
+    }
+    .ac-txt h4 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 16.5px;
+      color: var(--color-ink-muted);
+      letter-spacing: -0.1px;
+      margin-bottom: 4px;
+      transition: color .2s ease;
+    }
+    .ac-txt p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      max-width: 42ch;
+      line-height: 1.55;
+    }
+    .ac-arrow {
+      margin-left: auto;
+      align-self: center;
+      color: var(--color-ink-muted);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity .2s ease, transform .2s ease, color .2s ease;
+      flex-shrink: 0;
+    }
+    .ac-item:hover,
+    .ac-item--active { background: var(--color-surface-1); }
+    .ac-item:hover::before,
+    .ac-item--active::before { height: 62%; }
+    .ac-item:hover .ac-idx,
+    .ac-item--active .ac-idx { color: var(--color-success-400); }
+    .ac-item:hover .ac-txt h4,
+    .ac-item--active .ac-txt h4 { color: var(--color-ink); }
+    .ac-item:hover .ac-arrow,
+    .ac-item--active .ac-arrow { opacity: 1; transform: translateX(0); color: var(--color-success-400); }
+
+    @media (max-width: 880px) {
+      .ac-split { grid-template-columns: 1fr; gap: 28px; }
+      .ac-preview { aspect-ratio: 16 / 10; }
+      .ac-arrow { display: none; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       ALARMS & FIRE — signal diagram
+    ───────────────────────────────────────── */
+    .al-head {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: clamp(40px, 5vw, 56px);
+    }
+    .al-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-surface-1);
+      border: 1px solid var(--color-hairline);
+      border-radius: 100px;
+      padding: 8px 15px;
+      font-family: var(--font-body);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-error-400);
+      width: fit-content;
+    }
+    .al-head-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .al-h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(30px, 4.4vw, 52px);
+      color: var(--color-ink);
+      line-height: 1.06;
+      letter-spacing: -0.025em;
+    }
+    .al-sub {
+      flex: 1;
+      font-size: clamp(15px, 1.6vw, 17px);
+      color: var(--color-ink-muted);
+      max-width: 44ch;
+      line-height: 1.7;
+      padding-bottom: 6px;
+    }
+
+    /* diagram */
+    .al-diagram {
+      overflow-x: auto;
+      margin-bottom: clamp(32px, 4vw, 48px);
+    }
+    .al-diagram svg {
+      display: block;
+      width: 100%;
+      min-width: 700px;
+      max-width: 1040px;
+      height: auto;
+      margin: 0 auto;
+    }
+    .al-trace-bg  { stroke: var(--color-hairline); stroke-width: 1.8; fill: none; }
+    .al-trace-flow {
+      stroke: var(--color-blue-400);
+      stroke-width: 1.8;
+      fill: none;
+      stroke-dasharray: 40 420;
+      stroke-dashoffset: 460;
+      filter: drop-shadow(0 0 5px rgba(0,153,255,.55));
+      animation: al-flow 3.2s cubic-bezier(.5,0,.9,1) infinite;
+    }
+    .al-d1 { animation-delay: 0s; }
+    .al-d2 { animation-delay: .4s; }
+    .al-d3 { animation-delay: .8s; }
+    .al-d4 { animation-delay: 1.2s; }
+    .al-d5 { animation-delay: .2s; }
+    .al-d6 { animation-delay: .6s; }
+    .al-d7 { animation-delay: 1.0s; }
+    @keyframes al-flow { to { stroke-dashoffset: 0; } }
+
+    .al-chip-ring {
+      animation: al-pulse 2.6s ease-in-out infinite;
+      transform-origin: 450px 240px;
+    }
+    @keyframes al-pulse { 0%,100% { opacity: .35; } 50% { opacity: .9; } }
+
+    .al-node     { fill: var(--color-blue-400); }
+    .al-lbl-name { font-family: var(--font-body); font-weight: 600; font-size: 15px; fill: var(--color-ink); }
+    .al-lbl-sub  { font-family: var(--font-body); font-weight: 500; font-size: 11.5px; letter-spacing: .4px; fill: var(--color-ink-muted); text-transform: uppercase; }
+    .al-chip-num { font-family: var(--font-display); font-weight: 600; font-size: 30px; fill: var(--color-ink); }
+    .al-chip-cap { font-family: var(--font-body); font-weight: 600; font-size: 11px; letter-spacing: 2px; fill: var(--color-ink-muted); }
+
+    /* note row */
+    .al-note {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .al-note-p {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-ink-muted);
+      line-height: 1.65;
+      max-width: 58ch;
+      flex: 1;
+    }
+    .al-note-p b { color: var(--color-ink); font-weight: 500; }
+
+    @media (max-width: 720px) {
+      .al-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .al-note { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .al-trace-flow { animation: none; stroke-dashoffset: 0; }
+      .al-chip-ring  { animation: none; }
+    }
+
+
+    /* ─────────────────────────────────────────
+       04 NETWORK INFRASTRUCTURE
+    ───────────────────────────────────────── */
+    .nw-head {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      margin-bottom: 40px;
+    }
+    .nw-head-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+    .nw-pill {
+      font-family: var(--font-body);
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin: 0;
+    }
+    .nw-h2 {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--color-ink);
+      line-height: 1.1;
+      margin: 0;
+      max-width: 16ch;
+    }
+    .nw-subhead {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-ink-muted);
+      line-height: 1.65;
+      max-width: 46ch;
+      flex: 1;
+      margin: 0;
+    }
+
+    /* bento grid */
+    .nw-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .nw-tile {
+      background: var(--color-surface-1);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .nw-tile--a {
+      grid-column: span 2;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 32px;
+      min-height: 320px;
+      background: #130f23;
+    }
+    .nw-tile--b { grid-column: span 2; }
+    .nw-tile--c { grid-column: span 1; }
+    .nw-tile--d { grid-column: span 1; }
+    .nw-tile--e {
+      grid-column: span 4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      background: #1a1226;
+      padding: 28px 36px;
+    }
+
+    /* watermark */
+    .nw-watermark {
+      position: absolute;
+      top: 0; right: 0;
+      width: 60%;
+      height: 100%;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .nw-tile-body { position: relative; z-index: 1; }
+
+    /* chips */
+    .nw-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .nw-chip {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #a78bfa;
+      border: 1px solid rgba(167, 139, 250, 0.3);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    /* tile text */
+    .nw-tile-h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin: 0 0 10px;
+      line-height: 1.2;
+    }
+    .nw-tile--a .nw-tile-h3 { font-size: 26px; }
+    .nw-tile-p {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.6;
+      margin: 0 0 20px;
+    }
+    .nw-tile--b .nw-tile-p,
+    .nw-tile--c .nw-tile-p,
+    .nw-tile--d .nw-tile-p { margin-bottom: 0; }
+
+    .nw-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: #a78bfa;
+      text-decoration: none;
+      transition: gap 200ms ease;
+    }
+    .nw-cta:hover { gap: 11px; }
+
+    /* case study banner */
+    .nw-case-body { flex: 1; }
+    .nw-case-label {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: #a78bfa;
+      margin: 0 0 8px;
+    }
+    .nw-case-h3 {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-ink);
+      margin: 0 0 8px;
+    }
+    .nw-case-p {
+      font-family: var(--font-body);
+      font-size: 13.5px;
+      color: var(--color-ink-muted);
+      line-height: 1.55;
+      margin: 0;
+      max-width: 60ch;
+    }
+    .nw-case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      color: #a78bfa;
+      text-decoration: none;
+      flex-shrink: 0;
+      transition: gap 200ms ease;
+    }
+    .nw-case-link:hover { gap: 12px; }
+
+    @media (max-width: 900px) {
+      .nw-grid { grid-template-columns: repeat(2, 1fr); }
+      .nw-tile--a { grid-column: span 2; grid-row: span 1; min-height: 260px; }
+      .nw-tile--b { grid-column: span 2; }
+      .nw-tile--c,
+      .nw-tile--d { grid-column: span 1; }
+      .nw-tile--e { grid-column: span 2; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 600px) {
+      .nw-head { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .nw-grid { grid-template-columns: 1fr; }
+      .nw-tile--a,
+      .nw-tile--b,
+      .nw-tile--c,
+      .nw-tile--d,
+      .nw-tile--e { grid-column: span 1; grid-row: span 1; }
+    }
+
+
+    /* ─────────────────────────────────────────
        SERVICES STICKY NAV
     ───────────────────────────────────────── */
     .svc-nav {
@@ -733,7 +1554,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       background: rgba(9, 9, 9, 0.94);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--color-hairline);
     }
     .svc-nav-inner {
       max-width: 1280px;
@@ -769,12 +1589,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     .svc-nav-link svg { opacity: 0.6; flex-shrink: 0; }
     .svc-nav-link.is-active svg { opacity: 1; }
-    .svc-nav-sep {
-      width: 1px;
-      height: 14px;
-      background: var(--color-hairline);
-      flex-shrink: 0;
-    }
+    .svc-nav-sep { display: none; }
     @media (max-width: 640px) {
       .svc-nav-inner { padding: 0 16px; }
       .svc-nav-link  { padding: 12px 14px; font-size: 11px; }
@@ -788,21 +1603,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       position: relative;
       padding: 96px 0;
       overflow: hidden;
-      border-top: 1px solid var(--color-hairline);
     }
-    /* Top accent line per service */
-    .svc-section::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      z-index: 1;
-    }
-    .svc-surv::before    { background: var(--color-blue-500); }
-    .svc-access::before  { background: var(--color-success-600); }
-    .svc-fire::before    { background: var(--color-error-600); }
-    .svc-network::before { background: var(--color-warning-600); }
-    .svc-rentals::before { background: var(--color-blue-600); }
 
     /* Big watermark number */
     .svc-num {
@@ -1009,15 +1810,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 0;
-      border: 1px solid var(--color-hairline);
       margin-bottom: 48px;
     }
     .svc-use-card {
       padding: 28px 24px;
-      border-right: 1px solid var(--color-hairline);
       transition: background 0.2s ease;
     }
-    .svc-use-card:last-child { border-right: none; }
     .svc-use-card:hover { background: var(--color-surface-1); }
     .svc-use-title {
       font-family: var(--font-display);
@@ -1037,7 +1835,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 48px;
-      border: 1px solid var(--color-hairline);
       padding: 40px;
       margin-bottom: 24px;
       background: var(--color-surface-1);
@@ -1087,17 +1884,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     @media (max-width: 900px) {
       .svc-use-grid { grid-template-columns: repeat(2, 1fr); }
-      .svc-use-card:nth-child(2) { border-right: none; }
-      .svc-use-card:nth-child(1),
-      .svc-use-card:nth-child(2) { border-bottom: 1px solid var(--color-hairline); }
     }
     @media (max-width: 768px) {
       .svc-trailer-wrap { grid-template-columns: 1fr; gap: 32px; padding: 28px; }
     }
     @media (max-width: 480px) {
       .svc-use-grid { grid-template-columns: 1fr; }
-      .svc-use-card { border-right: none; border-bottom: 1px solid var(--color-hairline); }
-      .svc-use-card:last-child { border-bottom: none; }
     }
 
 
@@ -1106,7 +1898,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     ───────────────────────────────────────── */
     .svc-process-section {
       padding: 96px 0;
-      border-top: 1px solid var(--color-hairline);
     }
     .svc-process-head { margin-bottom: 56px; }
     .svc-process-h2 {
@@ -1122,14 +1913,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
-      border: 1px solid var(--color-hairline);
     }
     .svc-step {
       padding: 40px 36px;
-      border-right: 1px solid var(--color-hairline);
       position: relative;
     }
-    .svc-step:last-child { border-right: none; }
     .svc-step-top {
       display: flex;
       align-items: center;
@@ -1169,8 +1957,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     }
     @media (max-width: 900px) {
       .svc-process-grid { grid-template-columns: 1fr; }
-      .svc-step { border-right: none; border-bottom: 1px solid var(--color-hairline); }
-      .svc-step:last-child { border-bottom: none; }
       .svc-process-section { padding: 72px 0; }
     }
 
@@ -1180,7 +1966,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     ───────────────────────────────────────── */
     .svc-cta-wrap {
       padding: 96px 0;
-      border-top: 1px solid var(--color-hairline);
     }
     .svc-cta-inner {
       display: flex;

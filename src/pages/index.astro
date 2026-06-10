@@ -253,11 +253,11 @@ const services = [
             </p>
             <div class="why-testimonial">
               <div class="why-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
-                <svg viewBox="0 0 16 16" fill="#f59e0b" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
+                <svg viewBox="0 0 16 16" style="fill: var(--color-warning-500)" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
+                <svg viewBox="0 0 16 16" style="fill: var(--color-warning-500)" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
+                <svg viewBox="0 0 16 16" style="fill: var(--color-warning-500)" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
+                <svg viewBox="0 0 16 16" style="fill: var(--color-warning-500)" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
+                <svg viewBox="0 0 16 16" style="fill: var(--color-warning-500)" aria-hidden="true"><path d="M8 1l1.85 3.75L14 5.5l-3 2.92.71 4.13L8 10.5l-3.71 1.95.71-4.13L2 5.5l4.15-.75L8 1z"/></svg>
               </div>
               <blockquote class="why-quote">"They came in, listened to what we actually needed, and delivered exactly that — cleaner install, better coverage, under budget."</blockquote>
               <div class="why-quote-author">
@@ -310,7 +310,7 @@ const services = [
         <!-- COL 3 — photo spans all rows -->
         <div class="why-col-photo fade-up">
           <div class="why-photo">
-            <img src="/images/wwd-surveillance.jpg" alt="Trican security installation" class="why-photo-img" />
+            <img src="/images/why_trican.png" alt="Trican security installation" class="why-photo-img" />
           </div>
         </div>
 
@@ -320,7 +320,7 @@ const services = [
 
   <!-- ── Stats ── -->
   <section class="bg-canvas py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8" style="max-width:1600px">
       <StatIcons client:load />
     </div>
   </section>
@@ -420,7 +420,7 @@ const services = [
 
   <!-- ── Footer CTA Band ── -->
   <section class="bg-canvas py-20">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center fade-up">
+    <div class="mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up" style="max-width:1600px">
       <h2 class="font-display font-semibold text-3xl lg:text-4xl text-ink tracking-tight max-w-2xl mx-auto mb-6">
         Not sure what you need? That's normal.
       </h2>
@@ -447,7 +447,7 @@ const services = [
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      background: #060606;
+      background: var(--color-canvas);
     }
 
     /* Full-bleed background video */
@@ -465,10 +465,7 @@ const services = [
       position: absolute;
       inset: 0;
       z-index: 1;
-      background:
-        linear-gradient(to right,  rgba(4,4,4,0.93) 0%, rgba(4,4,4,0.70) 38%, rgba(4,4,4,0.20) 65%, transparent 100%),
-        linear-gradient(to bottom, rgba(4,4,4,0.60) 0%, transparent 20%),
-        linear-gradient(to top,    rgba(4,4,4,0.80) 0%, transparent 30%);
+      background: var(--vhero-overlay);
     }
 
     /* ── Content zone — fills space between nav and bottom bar ── */
@@ -505,35 +502,35 @@ const services = [
     .vhero-dot {
       width: 6px; height: 6px;
       border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 8px rgba(34,197,94,.65);
+      background: var(--color-success-500);
+      box-shadow: 0 0 8px var(--color-success-glow);
       flex-shrink: 0;
     }
     .vhero-eyebrow-text {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 11px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.5);
+      color: var(--color-ink-fade);
     }
 
     /* Headline */
     .vhero-h1 {
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: clamp(40px, 6.5vw, 80px);
       letter-spacing: -0.03em;
       line-height: 1.02;
-      color: #ffffff;
+      color: var(--color-ink);
       margin: 0 0 20px;
     }
 
     /* Body */
     .vhero-body {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: clamp(14px, 1.2vw, 16px);
-      color: rgba(255,255,255,0.50);
+      color: var(--color-ink-fade);
       line-height: 1.7;
       max-width: 440px;
       margin: 0 0 32px;
@@ -561,7 +558,7 @@ const services = [
       gap: 10px;
       color: var(--color-ink);
       padding: 14px 26px;
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 12px;
       letter-spacing: 0.1em;
@@ -602,10 +599,10 @@ const services = [
       position: relative;
       display: inline-flex;
       align-items: center;
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 500;
       font-size: 13px;
-      color: rgba(255,255,255,0.45);
+      color: var(--color-ink-ghost);
       text-decoration: none;
       letter-spacing: 0.05em;
       padding-bottom: 3px;
@@ -616,12 +613,12 @@ const services = [
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 1px;
-      background: rgba(255,255,255,0.45);
+      background: var(--color-ink-ghost);
       transform: scaleX(0);
       transform-origin: left center;
       transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
     }
-    .vhero-cta-ghost:hover { color: rgba(255,255,255,0.88); }
+    .vhero-cta-ghost:hover { color: var(--color-ink-hi); }
     .vhero-cta-ghost:hover::after { transform: scaleX(1); }
 
     /* Proof badges */
@@ -636,22 +633,22 @@ const services = [
     }
     .vhero-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
     .vhero-badge {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 9px;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.09);
+      color: var(--color-ink-badge);
+      background: var(--color-glass-fill);
+      border: 1px solid var(--color-ink-outline);
       border-radius: 0;
       padding: 4px 10px;
     }
-    .vhero-proof-sep { width: 1px; height: 16px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+    .vhero-proof-sep { width: 1px; height: 16px; background: var(--color-ink-rule); flex-shrink: 0; }
     .vhero-proof-text {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 11px;
-      color: rgba(255,255,255,0.26);
+      color: var(--color-ink-role);
       margin: 0;
       letter-spacing: 0.03em;
     }
@@ -676,11 +673,11 @@ const services = [
       padding-bottom: 6px;
     }
     .vhero-tagline {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 11px;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
+      color: var(--color-ink-dim);
       margin: 0;
     }
 
@@ -848,15 +845,15 @@ const services = [
       grid-column: 1 / 3;
       grid-row: 2;
       margin-bottom: 52px;
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: clamp(32px, 4.2vw, 50px);
       letter-spacing: -1.2px;
       line-height: 1.12;
-      color: #ffffff;
+      color: var(--color-ink);
       max-width: 600px;
     }
-    .why-stat { color: #0099ff; }
+    .why-stat { color: var(--color-blue-400); }
 
     /* Widget — col 1, row 3, bottom-anchored */
     .why-area-widget {
@@ -884,20 +881,20 @@ const services = [
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      border: 1px solid #262626;
+      border: 1px solid var(--color-hairline);
       border-radius: 100px;
       padding: 7px 15px;
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 11px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #999999;
+      color: var(--color-ink-muted);
     }
     .why-badge-dot {
       width: 7px; height: 7px;
       border-radius: 50%;
-      background: #22c55e;
+      background: var(--color-success-500);
       flex-shrink: 0;
       animation: why-pulse 2.4s ease-in-out infinite;
     }
@@ -910,10 +907,10 @@ const services = [
     .why-widget {
       position: relative;
       overflow: hidden;
-      background: #141414;
+      background: var(--color-surface-1);
       border-radius: 20px;
       padding: 28px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 14px 34px rgba(0,0,0,.30);
+      box-shadow: var(--shadow-card);
       max-width: 340px;
       min-height: 380px;
       display: flex;
@@ -922,35 +919,35 @@ const services = [
     .why-widget::before, .why-widget::after {
       content: '';
       position: absolute;
-      border: 1px solid #1a1a1a;
+      border: 1px solid var(--color-hairline-soft);
       border-radius: 50%;
       pointer-events: none;
     }
     .why-widget::before { width: 200px; height: 200px; top: 40%; right: -80px; }
     .why-widget::after  { width: 120px; height: 120px; top: 16%; right: 22px; }
     .why-widget-lbl {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 11px;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      color: #999999;
+      color: var(--color-ink-muted);
     }
     .why-widget-val {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: 34px;
       letter-spacing: -0.5px;
-      color: #ffffff;
+      color: var(--color-ink);
       margin: 8px 0 22px;
     }
     .why-widget-dot {
       width: 11px; height: 11px;
       border-radius: 50%;
-      background: #22c55e;
+      background: var(--color-success-500);
       flex-shrink: 0;
       animation: why-pulse 2.4s ease-in-out infinite;
     }
@@ -958,8 +955,8 @@ const services = [
       flex: 1;
       margin: 18px 0 20px;
       padding: 16px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.07);
+      background: var(--color-glass-bg);
+      border: 1px solid var(--color-glass-border);
       border-radius: 14px;
       display: flex;
       flex-direction: column;
@@ -974,10 +971,10 @@ const services = [
       flex-shrink: 0;
     }
     .why-quote {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 13px;
       line-height: 1.68;
-      color: rgba(255,255,255,0.58);
+      color: var(--color-ink-sub);
       font-style: italic;
       flex: 1;
     }
@@ -986,33 +983,33 @@ const services = [
       align-items: center;
       gap: 10px;
       padding-top: 11px;
-      border-top: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid var(--color-glass-sep);
     }
     .why-quote-avatar {
       width: 30px; height: 30px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(0,153,255,0.9), rgba(0,80,180,0.9));
+      background: var(--color-avatar-gradient);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: 10.5px;
       letter-spacing: 0.04em;
-      color: #ffffff;
+      color: var(--color-ink);
       flex-shrink: 0;
     }
     .why-quote-name {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 600;
       font-size: 12px;
-      color: rgba(255,255,255,0.68);
+      color: var(--color-ink-author);
       margin-bottom: 2px;
     }
     .why-quote-role {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 11px;
-      color: rgba(255,255,255,0.26);
+      color: var(--color-ink-role);
       letter-spacing: 0.02em;
     }
     .why-widget-row {
@@ -1020,23 +1017,23 @@ const services = [
       justify-content: space-between;
       align-items: baseline;
       gap: 16px;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid var(--color-hairline-soft);
       padding-top: 18px;
     }
     .why-widget-num {
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: 22px;
       letter-spacing: -0.3px;
-      color: #0099ff;
+      color: var(--color-blue-400);
     }
 
     /* Col-mid content */
     .why-body {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 15px;
       line-height: 1.7;
-      color: #999999;
+      color: var(--color-ink-muted);
       max-width: 420px;
       margin-bottom: 28px;
     }
@@ -1052,7 +1049,7 @@ const services = [
       isolation: isolate;
       display: inline-flex;
       align-items: center;
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-weight: 500;
       font-size: 14px;
       padding: 13px 26px;
@@ -1085,22 +1082,22 @@ const services = [
     .why-circle {
       width: 46px; height: 46px;
       border-radius: 50%;
-      background: #141414;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+      background: var(--color-surface-1);
+      box-shadow: inset 0 1px 0 var(--color-glass-sep);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: #ffffff;
+      color: var(--color-ink);
       font-size: 16px;
       text-decoration: none;
       flex-shrink: 0;
       transition: transform 0.12s ease, background 0.15s ease;
     }
-    .why-circle:hover { background: #1c1c1c; color: #ffffff; }
+    .why-circle:hover { background: var(--color-surface-2); color: var(--color-ink); }
     .why-circle:active { transform: scale(0.97); }
     .why-hr {
       border: 0;
-      border-top: 1px solid #1a1a1a;
+      border-top: 1px solid var(--color-hairline-soft);
       margin-bottom: 34px;
       max-width: 420px;
     }
@@ -1113,22 +1110,22 @@ const services = [
     .why-feat-icon {
       width: 46px; height: 46px;
       flex-shrink: 0;
-      color: #999999;
+      color: var(--color-ink-muted);
     }
     .why-feat-icon svg { width: 100%; height: 100%; }
     .why-feat-title {
-      font-family: 'Saira', sans-serif;
+      font-family: var(--font-display);
       font-weight: 600;
       font-size: 18px;
       letter-spacing: -0.3px;
-      color: #ffffff;
+      color: var(--color-ink);
       margin-bottom: 6px;
     }
     .why-feat-desc {
-      font-family: 'Exo 2', sans-serif;
+      font-family: var(--font-body);
       font-size: 13.5px;
       line-height: 1.6;
-      color: #999999;
+      color: var(--color-ink-muted);
     }
 
     /* Photo */
@@ -1137,7 +1134,7 @@ const services = [
       min-height: 480px;
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 14px 34px rgba(0,0,0,.30);
+      box-shadow: var(--shadow-card);
     }
     .why-photo-img {
       width: 100%; height: 100%;
@@ -1183,7 +1180,7 @@ const services = [
       font-family: var(--font-body); font-weight: 500; font-size: 14px;
       padding: 13px 24px; border-radius: 100px;
       background: var(--color-surface-1); color: var(--color-ink);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+      box-shadow: inset 0 1px 0 var(--color-glass-sep);
       text-decoration: none;
       transition: background var(--duration-card) ease, transform .12s ease;
     }
@@ -1376,7 +1373,7 @@ const services = [
     width: 46px; height: 46px;
     border-radius: 50%;
     background: var(--color-surface-1);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+    box-shadow: inset 0 1px 0 var(--color-glass-sep);
     border: 1px solid var(--color-hairline);
     display: flex; align-items: center; justify-content: center;
     color: var(--color-ink);

@@ -180,12 +180,12 @@ export default function VideoThumbs({ className }: Props) {
               display: 'block',
               boxSizing: 'border-box',
               // Glass background — no CSS border, SVG owns the border
-              background: 'rgba(255,255,255,0.07)',
+              background: 'var(--color-glass-border)',
               backdropFilter: 'blur(14px)',
               WebkitBackdropFilter: 'blur(14px)',
               border: 'none',
             }}
-            onFocus={e => { e.currentTarget.style.boxShadow = '0 0 0 2px #0099ff, 0 0 0 6px rgba(0,153,255,.15)'; }}
+            onFocus={e => { e.currentTarget.style.boxShadow = 'var(--shadow-focus)'; }}
             onBlur={e  => { e.currentTarget.style.boxShadow = ''; }}
           >
             {/* Video inset inside the glass frame */}
@@ -226,12 +226,12 @@ export default function VideoThumbs({ className }: Props) {
                 bottom: 8,
                 left: 8,
                 right: 8,
-                fontFamily: "'Exo 2', sans-serif",
+                fontFamily: 'var(--font-body)',
                 fontWeight: 600,
                 fontSize: 10,
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
-                color: 'rgba(255,255,255,0.88)',
+                color: 'var(--color-ink-hi)',
                 lineHeight: 1.3,
                 pointerEvents: 'none',
                 textShadow: '0 1px 4px rgba(0,0,0,0.6)',
@@ -251,14 +251,14 @@ export default function VideoThumbs({ className }: Props) {
               {/* Static track ring */}
               <rect
                 x={RX} y={RY} width={RW} height={RH} rx={BR}
-                stroke="rgba(255,255,255,0.13)"
+                style={{ stroke: 'var(--color-glass-track)' }}
                 strokeWidth={SW}
               />
               {/* Progress fill — blue, clockwise, driven by rAF */}
               <rect
                 ref={el => { strokeRefs.current[i] = el; }}
                 x={RX} y={RY} width={RW} height={RH} rx={BR}
-                stroke={isActive || (reduced && i === activeIdx) ? '#0099ff' : 'none'}
+                style={{ stroke: isActive || (reduced && i === activeIdx) ? 'var(--color-blue-400)' : 'none' }}
                 strokeWidth={SW}
                 strokeDasharray={PERIM}
                 strokeDashoffset={PERIM}
