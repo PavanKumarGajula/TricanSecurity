@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,10 +22,10 @@ const propertyTypes = ['Office', 'Retail', 'Warehouse', 'Multi-Tenant', 'Governm
 const needsOptions  = ['Surveillance', 'Badge Access & Access Control', 'Alarms & Monitoring', 'Fire Alarm', 'Network & Cabling', 'Trailer Rental', 'Not sure'];
 
 const fadeSlide = {
-  initial:  { opacity: 0, y: 12 },
-  animate:  { opacity: 1, y: 0  },
-  exit:     { opacity: 0, y: -8 },
-  transition: { duration: 0.35, ease: [0.4, 0, 0.2, 1] },
+  initial:    { opacity: 0, y: 12 },
+  animate:    { opacity: 1, y: 0  },
+  exit:       { opacity: 0, y: -8 },
+  transition: { duration: 0.35, ease: 'easeInOut' as const },
 };
 
 export default function ContactForm() {
